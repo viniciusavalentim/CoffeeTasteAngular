@@ -1,0 +1,100 @@
+
+  <div class="head">
+    <h1 class="title-head">COFFETESTE</h1>
+    <button class="admin-button-head"  routerLink="/administrador">Admin</button>
+  </div>
+
+  <div class="container">
+    <div class="container-btn">
+      <button (click)="showCategorias()" class="btn-home">Métodos</button>
+      <button (click)="showCategorias()" class="btn-home">Espesso</button>
+      <button (click)="showCategorias()" class="btn-home">Bebidas Geladas</button>
+      <button (click)="showCategorias()" class="btn-home">Bebidas Quentes</button>
+      <button (click)="showCategorias()" class="btn-home">Chás</button>
+      <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
+    </div>
+      <h3 class="text-category">Métodos</h3>
+      <div class="barra"></div>
+
+    
+ 
+    <div *ngIf="isMetodosVisible" class="container-metodos">
+        <div *ngFor="let metodo of metodos" class="btn-metodos-exit">
+          <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
+            
+            <div *ngIf="metodo.metodos == 'Clever'">
+              <img src="https://i.im.ge/2024/02/17/cGUg2y.WhatsApp-Image-2024-02-16-at-22-46-16-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            <div *ngIf="metodo.metodos == 'v60'">
+              <img src="https://i.im.ge/2024/02/17/cGUylT.WhatsApp-Image-2024-02-16-at-22-46-17-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            <div *ngIf="metodo.metodos == 'Chemex'">
+              <img src="https://i.im.ge/2024/02/17/cGUbpJ.WhatsApp-Image-2024-02-16-at-22-46-16-3-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            <div *ngIf="metodo.metodos == 'Aeropress'">
+              <img src="https://i.im.ge/2024/02/17/cGU37x.WhatsApp-Image-2024-02-16-at-22-46-17-1-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            <div *ngIf="metodo.metodos == 'Kalita'">
+              <img src="https://i.im.ge/2024/02/17/cGUEGG.WhatsApp-Image-2024-02-16-at-22-46-16-2-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            <div *ngIf="metodo.metodos == 'Prensa'">
+              <img src="https://i.im.ge/2024/02/17/cGUYCa.WhatsApp-Image-2024-02-16-at-22-46-16-1-removebg-preview.png" alt="" width="45px" height="45px">
+            </div>
+            {{metodo.metodos}}
+          </button>
+        </div>
+    </div>
+    <h3 class="text-category" *ngIf="isCafesVisible">Variações</h3>
+    <div class="barra" *ngIf="isCafesVisible"></div>
+
+    <div *ngIf="isCafesVisible" class="container-cafes">
+        <div *ngFor="let cafe of cafesComBaseNoId" class="btn-cafes">
+          <button (click)="showCafes()" (click)="GetIdCafe(cafe)" (click)="getReceitaByCafe()" (click)="getVariacao(cafe.variacao)" class="btn-cafes">{{cafe.variacao}}</button>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="isReceitasVisible"> 
+      <h3 class="text-category" class="receita">{{variacao}}</h3>
+
+      <div class="receita-box">
+          <div *ngFor="let receita of receitaComBaseNoId">
+            <h3>
+              <img src="https://cdn-icons-png.flaticon.com/256/7733/7733708.png" alt="" width="16" height="16">
+              Ratio: </h3>
+            <h3>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+                <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z"/>
+              </svg>
+              Quantidade De Agua: {{receita.quantidadeDeAgua}}</h3>
+            <h3>
+              <img src="https://cdn-icons-png.flaticon.com/256/7598/7598399.png" alt="" width="16" height="16">
+              Quantidade De Pó: {{receita.quantidadeDeCafe}}</h3>
+            <h3>
+              <img src="https://cdn-icons-png.flaticon.com/256/2652/2652870.png" alt="" width="16" height="16">
+              Temperatura: {{receita.temperatura}}</h3>
+            <h3>
+              <img src="https://cdn-icons-png.flaticon.com/256/2391/2391654.png" alt="" width="16" height="16">
+              Granulometria: {{receita.granulometria}}</h3>
+            <P>1º pulso: Iniciar o Blooming com o dobro <br> de pó até 30s ({{quantidadeDeCafe}}g) </P>
+            <P>2º pulso: inteirar 160ml de água entre <br> 30s até 1:15s</P>
+            <P>3º pulso: Finalizar com 250ml até 1:40</P>
+            <h2>Parar extração em 2:30s</h2>
+        
+          </div>
+      </div>
+  
+    </div>
+    
+
+  </div>
+  
+     
+
+  
+
+
+
+

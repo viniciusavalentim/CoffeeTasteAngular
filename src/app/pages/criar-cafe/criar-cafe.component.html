@@ -1,0 +1,32 @@
+<p>criar-cafe works!</p>
+<div class="criar-cafe">
+    <button routerLink="/administrador">Voltar para tela de Administrador</button>
+    <form [formGroup]="cafeForm" (ngSubmit)="submit()" #formdir="ngForm">
+        
+        <h1>Cafés</h1>
+            <div>
+                <label for="variacao">Variação:</label>
+                <input type="text" id="variacao" formControlName="variacao" class="formControl">
+            </div>
+            <h1>Receita</h1>
+            <div formGroupName="receita">
+                <div id="formGroup">
+                    <label for="temperatura">Quantidade de Café:</label>
+                    <input type="number" id="temperatura" formControlName="quantidadeDeCafe" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="granulometria">Quantidade de Água</label>
+                    <input type="number" id="granulometria" formControlName="quantidadeDeAgua" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="quantidadeAgua">Temperatura </label>
+                    <input type="number" id="quantidadeAgua" formControlName="temperatura" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="quantidadeAgua">Granulometria</label>
+                    <input type="number" id="quantidadeAgua" formControlName="granulometria" class="formControl">
+                </div>
+            </div>
+            <button type="submit" [disabled]="!cafeForm.valid">Enviar</button>
+    </form>
+</div>

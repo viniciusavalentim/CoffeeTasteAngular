@@ -1,0 +1,170 @@
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 29px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1C1E20;
+    box-shadow: 0 0 10px #1C1E20;
+    width: 100%;
+    height: 115px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.head > button{
+    height: 40px;
+    border-radius: 30px;
+}
+
+.title-head {
+    color: #fff;
+    margin: 0;
+    font-weight: 300;
+    font-size: 23px;
+    margin-left: 15px;
+}
+
+.admin-button-head {
+    background-color: #fff;
+    color: #1C1E20;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 94px;
+    height: 21px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.container-btn{
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+.btn-home {
+    width: 112px;
+    height: 112px;
+    background-color: #343A42;
+    color: #B5B5B5;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    outline: none; /* Remove a borda ao clicar */
+    outline-offset: 0; /* Remove a borda ao clicar */
+}
+
+.text-category{
+    font-size: 22px;
+    font-weight: 500;
+    color: #343A42;
+}
+.barra{
+    width: 150px;
+    height: 1.5px;
+    background-color: #343A42;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+
+.container-metodos{
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.btn-metodos{
+    width: 100px;
+    height: 90px;
+    background-color: #343A42;
+    color: #B5B5B5;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaçamento na parte inferior de cada botão */
+    font-size: 15px;
+    align-items: center;
+}
+
+
+
+.container-cafes{
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.btn-cafes{
+    width: 100px;
+    height: 50px;
+    background-color: #343A42;
+    color: #B5B5B5;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaçamento na parte inferior de cada botão */
+    font-size: 15px;
+    align-items: center;
+}
+
+.receita{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.receita-box{
+    border: 1px solid black;
+    display: inline-block;
+    max-width: 100%;
+    padding: 30px;
+
+}
+
+
+
+
+.btn-metodos:hover{
+    color: #525b68;
+}

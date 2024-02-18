@@ -1,0 +1,34 @@
+.table{
+    display: flex;
+    justify-content: center;
+}
+
+.tr-metodos{
+    border: 1px solid black;
+    margin-bottom: 10px; /* Ajuste conforme necessário */
+    padding: 102px;
+
+}
+.margin-bottom {
+    margin-bottom: 10px; /* Ajuste conforme necessário */
+}
+
+
+table{
+    border-collapse: collapse;
+    width: 65%;
+}
+
+
+.tteste td, .tteste th{
+    padding: 12px;
+} 
+
+.btn{
+    text-align: right;
+    background-color: #ddd;
+}
+.nameTableMetodos{
+    text-align: left;
+}
+

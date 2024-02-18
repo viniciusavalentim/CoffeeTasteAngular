@@ -1,0 +1,43 @@
+<p>administrador works!</p>
+<button routerLink="/">Votar para a tela inicial</button>
+
+
+<div>
+    <button (click)="VerOpcoesMetodos()">Metodos</button>
+    <button (click)="Limpar()">Limpar</button>
+    <div *ngIf="opcoesMetodos" >
+        <div class="table">
+            <table class="tteste">
+                <thead>
+                    <th class="nameTableMetodos">Nome</th>
+                    <th colspan="3">Variação</th>
+                    <th>
+                        <button routerLink="/administrador/criarMetodo">Criar Metodos</button>
+                    </th>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let item of metodos" class="tr-metodos margin-bottom">
+                            <td>{{item.metodos}} |</td>
+
+                            <td *ngFor="let item of item.cafes">
+                                {{item.variacao}}      
+                            </td>
+
+                            <td class="aparecerQuandoDesejado" *ngIf="item.cafes.length == 1"></td>
+                            <td class="aparecerQuandoDesejado" *ngIf="item.cafes.length == 2"></td>
+
+                            <td class="btn">
+                                <button routerLink="/administrador/editarMetodo/{{item.id}}">Editar</button>
+                            </td>
+                            <td class="btn">
+                                <button routerLink="/administrador/criarCafe/{{item.id}}">Criar Cafes</button>  
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+</div>
+

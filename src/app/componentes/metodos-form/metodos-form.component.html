@@ -1,0 +1,47 @@
+
+
+<form [formGroup]="metodoForm" (ngSubmit)="submit()" #formdir="ngForm">
+
+
+
+    <div id="formGroup">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" formControlName="metodos" class="formControl" required>
+    </div>
+
+
+
+    <div formArrayName="cafes">
+        <div *ngFor="let cafe of cafes.controls; let i = index" [formGroupName]="i">
+            <h1>Cafés</h1>
+            <div id="formGroup">
+                <label for="variacao">Variação:</label>
+                <input type="text" id="variacao" formControlName="variacao" class="formControl">
+            </div>
+            <h1>Receita</h1>
+            <div formGroupName="receita">
+                <div id="formGroup">
+                    <label for="temperatura">Quantidade de Café:</label>
+                    <input type="number" id="temperatura" formControlName="quantidadeDeCafe" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="granulometria">Quantidade de Água</label>
+                    <input type="number" id="granulometria" formControlName="quantidadeDeAgua" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="quantidadeAgua">Temperatura </label>
+                    <input type="number" id="quantidadeAgua" formControlName="temperatura" class="formControl">
+                </div>
+                <div id="formGroup">
+                    <label for="quantidadeAgua">Granulometria</label>
+                    <input type="number" id="quantidadeAgua" formControlName="granulometria" class="formControl">
+                </div>
+            </div>
+            <button type="button" (click)="removeCafe(i)">Remover Café</button>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="!metodoForm.valid || cafes.length === 0">Enviar</button>
+    <button type="button" (click)="addCafe()">Adicionar Café</button>
+</form>
+<button routerLink="/administrador">Voltar</button>
