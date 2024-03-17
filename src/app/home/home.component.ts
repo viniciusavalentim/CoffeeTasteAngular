@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit{
   idCafeGet?: number;
   idReceita?: number;
   variacao?: string;
+  metodoView?: string;
 
   quantidadeDeCafe: number = 0;
 
@@ -60,13 +61,15 @@ export class HomeComponent implements OnInit{
     {
       const id = metodo.id;
       this.idMetodo = id;
+      this.metodoView = metodo.metodos
+      
     }
 
     GetIdCafe(cafe: Cafes)
     {
       const id = cafe.id;
       this.idCafe = id;
-      console.log(this.idCafe)
+      console.log(this.idCafe);
     }
 
 
@@ -99,7 +102,6 @@ export class HomeComponent implements OnInit{
 
  
     }
-
     GetByDivision(){
       return this.metodos
     }

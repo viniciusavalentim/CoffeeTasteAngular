@@ -1,4 +1,5 @@
 
+
   <div class="head">
     <h1 class="title-head">COFFEETASTE</h1>
     <button class="admin-button-head"  routerLink="/administrador">Admin</button>
@@ -18,37 +19,37 @@
 
     
  
-    <div *ngIf="isMetodosVisible" class="container-metodos">
+    <div *ngIf="isMetodosVisible" class="container-metodos" id="metodos-page">
         <div *ngFor="let metodo of metodos" class="btn-metodos-exit">
-          <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
+            <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
             
-            <div *ngIf="metodo.metodos == 'Clever'">
-              <img src="https://i.im.ge/2024/02/17/cGUg2y.WhatsApp-Image-2024-02-16-at-22-46-16-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            <div *ngIf="metodo.metodos == 'v60'">
-              <img src="https://i.im.ge/2024/02/17/cGUylT.WhatsApp-Image-2024-02-16-at-22-46-17-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            <div *ngIf="metodo.metodos == 'Chemex'">
-              <img src="https://i.im.ge/2024/02/17/cGUbpJ.WhatsApp-Image-2024-02-16-at-22-46-16-3-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            <div *ngIf="metodo.metodos == 'Aeropress'">
-              <img src="https://i.im.ge/2024/02/17/cGU37x.WhatsApp-Image-2024-02-16-at-22-46-17-1-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            <div *ngIf="metodo.metodos == 'Kalita'">
-              <img src="https://i.im.ge/2024/02/17/cGUEGG.WhatsApp-Image-2024-02-16-at-22-46-16-2-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            <div *ngIf="metodo.metodos == 'Prensa'">
-              <img src="https://i.im.ge/2024/02/17/cGUYCa.WhatsApp-Image-2024-02-16-at-22-46-16-1-removebg-preview.png" alt="" width="45px" height="45px">
-            </div>
-            {{metodo.metodos}}
-          </button>
+              <div *ngIf="metodo.metodos == 'Clever'">
+                <img src="https://i.im.ge/2024/02/17/cGUg2y.WhatsApp-Image-2024-02-16-at-22-46-16-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              <div *ngIf="metodo.metodos == 'v60'">
+                <img src="https://i.im.ge/2024/02/17/cGUylT.WhatsApp-Image-2024-02-16-at-22-46-17-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              <div *ngIf="metodo.metodos == 'Chemex'">
+                <img src="https://i.im.ge/2024/02/17/cGUbpJ.WhatsApp-Image-2024-02-16-at-22-46-16-3-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              <div *ngIf="metodo.metodos == 'Aeropress'">
+                <img src="https://i.im.ge/2024/02/17/cGU37x.WhatsApp-Image-2024-02-16-at-22-46-17-1-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              <div *ngIf="metodo.metodos == 'Kalita'">
+                <img src="https://i.im.ge/2024/02/17/cGUEGG.WhatsApp-Image-2024-02-16-at-22-46-16-2-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              <div *ngIf="metodo.metodos == 'Prensa'">
+                <img src="https://i.im.ge/2024/02/17/cGUYCa.WhatsApp-Image-2024-02-16-at-22-46-16-1-removebg-preview.png" alt="" width="45px" height="45px">
+              </div>
+              {{metodo.metodos}}
+            </button>
         </div>
     </div>
-    <h3 class="text-category" *ngIf="isCafesVisible">Variações</h3>
+    <h3 class="text-category" *ngIf="isCafesVisible">Variedades</h3>
     <div class="barra" *ngIf="isCafesVisible"></div>
 
-    <div *ngIf="isCafesVisible" class="container-cafes">
-        <div *ngFor="let cafe of cafesComBaseNoId" class="btn-cafes">
+    <div *ngIf="isCafesVisible" class="container-cafes" >
+        <div *ngFor="let cafe of cafesComBaseNoId" class="btn-cafes" id="cafes-pages">
           <button (click)="showCafes()" (click)="GetIdCafe(cafe)" (click)="getReceitaByCafe()" (click)="getVariacao(cafe.variacao)" class="btn-cafes">{{cafe.variacao}}</button>
         </div>
     </div>
@@ -56,10 +57,62 @@
 
 
     <div *ngIf="isReceitasVisible"> 
-      <h3 class="text-category" class="receita">{{variacao}}</h3>
+      <h2 class="text-category" class="receita">{{variacao}}</h2>
 
       <div class="receita-box">
-          <div *ngFor="let receita of receitaComBaseNoId">
+          <div *ngFor="let receita of receitaComBaseNoId"  id="receitas-page" class="receitas">
+
+
+            <div *ngIf="metodoView == 'v60'" class="v60-receita" >
+              <div class="line">
+
+                <div class="box-with-word">
+                  <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
+                  <span class="word-metodos">v60</span>
+                </div>
+             
+                <div class="box-with-word">
+                  <img src="https://i.im.ge/2024/02/21/g0XBaG.Adobe-Express-20240220-1115370-1.png" alt="" width="45px" height="45px">
+                  <span class="word-metodos">{{variacao}}</span>
+                </div>
+                <div class="box-with-word">
+                  <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
+                  <span class="word-metodos">filtro v60</span>
+                </div>  
+
+              </div>
+              <div class="line">
+                <div class="box-with-word">
+                  <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
+                </div>
+                <div>
+                  <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
+                </div>
+              </div>
+
+            </div>
+            
+            <div *ngIf="metodoView == 'Aeropress'" class="aeropress-receita" >
+              <h1>oi</h1>
+            </div>
+            <div *ngIf="metodoView == 'Kalita'" class="kalita-receita" >
+              <h1>oi</h1>
+            </div>
+            <div *ngIf="metodoView == 'Chemex'" class="chemex-receita" >
+              <h1>oi</h1>
+            </div>
+            <div *ngIf="metodoView == 'Prensa'" class="prensa-receita" >
+              <h1>oi</h1>
+            </div>
+            <div *ngIf="metodoView == 'Clever'" class="clever-receita" >
+              <h1>oi</h1>
+            </div>
+
+
+
+
+            
+
             <h3>
               <img src="https://cdn-icons-png.flaticon.com/256/7733/7733708.png" alt="" width="16" height="16">
               Ratio: </h3>
