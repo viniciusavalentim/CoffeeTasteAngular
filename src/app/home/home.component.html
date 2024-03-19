@@ -7,20 +7,29 @@
 
   <div class="container">
     <div class="container-btn">
-      <button (click)="showCategorias()" class="btn-home">Métodos</button>
+      <a href="#metodos-page"> 
+        <button (click)="showCategorias()" class="btn-home">Métodos</button>
+      </a>
       <button (click)="showCategorias()" class="btn-home">Espressos</button>
       <button (click)="showCategorias()" class="btn-home">Bebidas Geladas</button>
       <button (click)="showCategorias()" class="btn-home">Bebidas Quentes</button>
       <button (click)="showCategorias()" class="btn-home">Chás</button>
       <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
     </div>
+
+
+
+
+
       <h3 class="text-category">Métodos</h3>
       <div class="barra"></div>
-
     
- 
-    <div *ngIf="isMetodosVisible" class="container-metodos" id="metodos-page">
+    <section id="metodos-page"></section>
+    <div *ngIf="isMetodosVisible" class="container-metodos">
         <div *ngFor="let metodo of metodos" class="btn-metodos-exit">
+
+          <a href="#cafes-page">
+
             <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
             
               <div *ngIf="metodo.metodos == 'Clever'">
@@ -43,108 +52,129 @@
               </div>
               {{metodo.metodos}}
             </button>
+
+          </a>
+
+
+
         </div>
     </div>
     <h3 class="text-category" *ngIf="isCafesVisible">Variedades</h3>
     <div class="barra" *ngIf="isCafesVisible"></div>
 
-    <div *ngIf="isCafesVisible" class="container-cafes" >
+
+    <section id="cafes-page">
+
+      <div *ngIf="isCafesVisible" class="container-cafes" >
         <div *ngFor="let cafe of cafesComBaseNoId" class="btn-cafes" id="cafes-pages">
-          <button (click)="showCafes()" (click)="GetIdCafe(cafe)" (click)="getReceitaByCafe()" (click)="getVariacao(cafe.variacao)" class="btn-cafes">{{cafe.variacao}}</button>
+          <a href="#receitas-page">
+            <button (click)="showCafes()" (click)="GetIdCafe(cafe)" (click)="getReceitaByCafe()" (click)="getVariacao(cafe.variacao)" class="btn-cafes">{{cafe.variacao}}</button>
+          </a>
         </div>
-    </div>
-
-
-
-    <div *ngIf="isReceitasVisible"> 
-      <h2 class="text-category" class="receita">{{variacao}}</h2>
-
-      <div class="receita-box">
-          <div *ngFor="let receita of receitaComBaseNoId"  id="receitas-page" class="receitas">
-
-
-            <div *ngIf="metodoView == 'v60'" class="v60-receita" >
-              <div class="line">
-
-                <div class="box-with-word">
-                  <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
-                  <span class="word-metodos">v60</span>
-                </div>
-             
-                <div class="box-with-word">
-                  <img src="https://i.im.ge/2024/02/21/g0XBaG.Adobe-Express-20240220-1115370-1.png" alt="" width="45px" height="45px">
-                  <span class="word-metodos">{{variacao}}</span>
-                </div>
-                <div class="box-with-word">
-                  <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
-                  <span class="word-metodos">filtro v60</span>
-                </div>  
-
-              </div>
-              <div class="line">
-                <div class="box-with-word">
-                  <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
-                </div>
-                <div>
-                  <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
-                </div>
-              </div>
-
-            </div>
-            
-            <div *ngIf="metodoView == 'Aeropress'" class="aeropress-receita" >
-              <h1>oi</h1>
-            </div>
-            <div *ngIf="metodoView == 'Kalita'" class="kalita-receita" >
-              <h1>oi</h1>
-            </div>
-            <div *ngIf="metodoView == 'Chemex'" class="chemex-receita" >
-              <h1>oi</h1>
-            </div>
-            <div *ngIf="metodoView == 'Prensa'" class="prensa-receita" >
-              <h1>oi</h1>
-            </div>
-            <div *ngIf="metodoView == 'Clever'" class="clever-receita" >
-              <h1>oi</h1>
-            </div>
-
-
-
-
-            
-
-            <h3>
-              <img src="https://cdn-icons-png.flaticon.com/256/7733/7733708.png" alt="" width="16" height="16">
-              Ratio: </h3>
-            <h3>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
-                <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z"/>
-              </svg>
-              Quantidade De Agua: {{receita.quantidadeDeAgua}}</h3>
-            <h3>
-              <img src="https://cdn-icons-png.flaticon.com/256/7598/7598399.png" alt="" width="16" height="16">
-              Quantidade De Pó: {{receita.quantidadeDeCafe}}</h3>
-            <h3>
-              <img src="https://cdn-icons-png.flaticon.com/256/2652/2652870.png" alt="" width="16" height="16">
-              Temperatura: {{receita.temperatura}}</h3>
-            <h3>
-              <img src="https://cdn-icons-png.flaticon.com/256/2391/2391654.png" alt="" width="16" height="16">
-              Granulometria: {{receita.granulometria}}</h3>
-            <P>1º pulso: Iniciar o Blooming com o dobro <br> de pó até 30s ({{quantidadeDeCafe}}g) </P>
-            <P>2º pulso: inteirar 160ml de água entre <br> 30s até 1:15s</P>
-            <P>3º pulso: Finalizar com 250ml até 1:40</P>
-            <h2>Parar extração em 2:30s</h2>
-        
-          </div>
       </div>
+
+    </section>
+
+
+
+
+    <section id="receitas-page">
+
+      <div *ngIf="isReceitasVisible"> 
+        <h2 class="text-category" class="receita">{{variacao}}</h2>
   
-    </div>
+        <div class="receita-box">
+            <div *ngFor="let receita of receitaComBaseNoId" class="receitas">
+  
+  
+              <div *ngIf="metodoView == 'v60'" class="v60-receita" >
+                <div class="line">
+  
+                  <div class="box-with-word">
+                    <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
+                    <span class="word-metodos">v60</span>
+                  </div>
+               
+                  <div class="box-with-word">
+                    <img src="https://i.im.ge/2024/02/21/g0XBaG.Adobe-Express-20240220-1115370-1.png" alt="" width="45px" height="45px">
+                    <span class="word-metodos">{{variacao}}</span>
+                  </div>
+                  <div class="box-with-word">
+                    <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
+                    <span class="word-metodos">filtro v60</span>
+                  </div>  
+  
+                </div>
+  
+                <div class="line">
+                  <div class="box-with-word">
+                    <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
+                  </div>
+                  <div>
+                    <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
+                  </div>
+                </div>
+  
+              </div>
+              
+              <div *ngIf="metodoView == 'Aeropress'" class="aeropress-receita" >
+                <h1>oi</h1>
+              </div>
+              <div *ngIf="metodoView == 'Kalita'" class="kalita-receita" >
+                <h1>oi</h1>
+              </div>
+              <div *ngIf="metodoView == 'Chemex'" class="chemex-receita" >
+                <h1>oi</h1>
+              </div>
+              <div *ngIf="metodoView == 'Prensa'" class="prensa-receita" >
+                <h1>oi</h1>
+              </div>
+              <div *ngIf="metodoView == 'Clever'" class="clever-receita" >
+                <h1>oi</h1>
+              </div>
+  
+  
+  
+  
+              
+  
+              <h3>
+                <img src="https://cdn-icons-png.flaticon.com/256/7733/7733708.png" alt="" width="16" height="16">
+                Ratio: </h3>
+              <h3>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0q.164.544.371 1.038c.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8m.413 1.021A31 31 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10a5 5 0 0 0 10 0c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z"/>
+                  <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87z"/>
+                </svg>
+                Quantidade De Agua: {{receita.quantidadeDeAgua}}</h3>
+              <h3>
+                <img src="https://cdn-icons-png.flaticon.com/256/7598/7598399.png" alt="" width="16" height="16">
+                Quantidade De Pó: {{receita.quantidadeDeCafe}}</h3>
+              <h3>
+                <img src="https://cdn-icons-png.flaticon.com/256/2652/2652870.png" alt="" width="16" height="16">
+                Temperatura: {{receita.temperatura}}</h3>
+              <h3>
+                <img src="https://cdn-icons-png.flaticon.com/256/2391/2391654.png" alt="" width="16" height="16">
+                Granulometria: {{receita.granulometria}}</h3>
+              <P>1º pulso: Iniciar o Blooming com o dobro <br> de pó até 30s ({{quantidadeDeCafe}}g) </P>
+              <P>2º pulso: inteirar 160ml de água entre <br> 30s até 1:15s</P>
+              <P>3º pulso: Finalizar com 250ml até 1:40</P>
+              <h2>Parar extração em 2:30s</h2>
+          
+            </div>
+        </div>
+    
+      </div>
+
+    </section>
+   
     
 
   </div>
   
-     
+     <div class="footer">
+      <span>COFFEETASTE by Vinicius</span>
+     </div>
 
   
 
