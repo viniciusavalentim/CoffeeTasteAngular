@@ -6,6 +6,7 @@ import { Metodo } from '../models/Metodos';
 import { Response } from '../models/Response';
 import { Cafes } from '../models/Cafes';
 import { Receitas } from '../models/Receitas';
+import { BebidasGeladas } from '../models/BebidasGeladas';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class MetodosService {
 
   private apiUrlCafes = `${environment.ApiUrl}/Cafes`
   private apiUrlReceitas = `${environment.ApiUrl}/Receitas`
+  
+  private apiUrlBebidasGeladas = `${environment.ApiUrl}/BebidasGeladas`
 
 
 
@@ -55,6 +58,11 @@ export class MetodosService {
     return this.http.get<Response<Receitas[]>>(`${this.apiUrlReceitas}/${id}`);
   }
 
+
+
+  GetBebidasGeladas():Observable<Response<BebidasGeladas[]>>{
+    return this.http.get<Response<BebidasGeladas[]>>(`${this.apiUrlBebidasGeladas}`)
+  }
  
 
 }

@@ -4,6 +4,7 @@ import { MetodosService } from '../services/metodos.service';
 import { Cafes } from '../models/Cafes';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Receitas } from '../models/Receitas';
+import { BebidasGeladas } from '../models/BebidasGeladas';
 
 
 @Component({
@@ -28,8 +29,10 @@ export class HomeComponent implements OnInit{
   idReceita?: number;
   variacao?: string;
   metodoView?: string;
-
   quantidadeDeCafe: number = 0;
+
+
+  GetBebidasGeladas?: BebidasGeladas[];
 
 
   constructor(public metodosService: MetodosService, private route: ActivatedRoute, private router: Router){}
@@ -40,9 +43,7 @@ export class HomeComponent implements OnInit{
         const dados = data.dados;
         dados.map((item) =>{
         });
-
         this.metodos = dados;
-      
       });
 
       this.metodosService.GetCafes().subscribe(data =>{
@@ -50,11 +51,19 @@ export class HomeComponent implements OnInit{
         console.log(data)
 
         dados.map((item) =>{
-          console.log(item)
         });
         this.cafes = dados;
-      })
+      });
 
+      this.metodosService.GetBebidasGeladas().subscribe(data =>{
+        const dados = data.dados;
+        dados.map((item) =>{
+          console.log(item.ingredientes)
+        });
+        this.GetBebidasGeladas = dados;
+        
+      })
+      
     }
     
     GetId(metodo: Metodo)
