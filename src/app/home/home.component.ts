@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit{
 
 
   GetBebidasGeladas?: BebidasGeladas[];
+  BebidasGeladasVisible: boolean = false;
+
+
+  bebidasQuentesVisible: boolean = false;
 
 
   constructor(public metodosService: MetodosService, private route: ActivatedRoute, private router: Router){}
@@ -124,6 +128,8 @@ export class HomeComponent implements OnInit{
       this.isMetodosVisible = true;
       this.isCafesVisible = false;
       this.isReceitasVisible = false;
+      this.BebidasGeladasVisible = false;
+      this.bebidasQuentesVisible = false
     }
   
     showMetodos() {
@@ -145,6 +151,16 @@ export class HomeComponent implements OnInit{
     }
 
 
+    showBebidasGeladas(){
+      this.BebidasGeladasVisible = true;
+      this.bebidasQuentesVisible = false;
+    }
+
+    showBebidasQuentes(){
+      this.bebidasQuentesVisible = true;
+      this.BebidasGeladasVisible = false;
+      
+    }
 
 
 }

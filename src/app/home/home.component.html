@@ -11,8 +11,8 @@
         <button (click)="showCategorias()" class="btn-home">Métodos</button>
       </a>
       <button (click)="showCategorias()" class="btn-home">Espressos</button>
-      <button (click)="showCategorias()" class="btn-home">Bebidas Geladas</button>
-      <button (click)="showCategorias()" class="btn-home">Bebidas Quentes</button>
+      <button (click)="showBebidasGeladas()" (click)="Limpar()" class="btn-home" >Bebidas Geladas</button>
+      <button (click)="showBebidasQuentes()" (click)="Limpar()" class="btn-home">Bebidas Quentes</button>
       <button (click)="showCategorias()" class="btn-home">Chás</button>
       <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
     </div>
@@ -21,13 +21,16 @@
 
 
 
-      <h3 class="text-category">Métodos</h3>
-      <div class="barra"></div>
     
+  
+    <h3 class="text-category" *ngIf="isMetodosVisible">Métodos</h3>
+    <div class="barra"*ngIf="isMetodosVisible"></div>
+  
     <section id="metodos-page"></section>
     <div *ngIf="isMetodosVisible" class="container-metodos">
+       
         <div *ngFor="let metodo of metodos" class="btn-metodos-exit">
-
+          
           <a href="#cafes-page">
 
             <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
@@ -169,12 +172,36 @@
     </section>
    
     
+    <!--BEBIDAS GELADAS-->
+    <h3 class="text-category" *ngIf="BebidasGeladasVisible">Bebidas Geladas</h3>
+    <div class="barra" *ngIf="BebidasGeladasVisible"></div>
+    <div *ngIf="BebidasGeladasVisible">
+      <div *ngFor="let item of GetBebidasGeladas">
+        <button class="btn-bebidasgeladas">{{item.nome}}</button>
+      </div>
+
+      <div> 
+        
+      </div>    
+    </div>
+
+    <!--BEBIDAS QUNTES-->
+      <h3 class="text-category" *ngIf="bebidasQuentesVisible">Bebidas Quentes</h3>
+      <div class="barra" *ngIf="bebidasQuentesVisible"></div>
+      <div *ngIf="bebidasQuentesVisible">
+          <button class="btn-bebidasquentes">Teste</button>
+      </div>
+
+
 
   </div>
   
      <div class="footer">
       <span>COFFEETASTE by Vinicius</span>
      </div>
+
+
+
 
   
 
