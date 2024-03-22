@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, UntypedFormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cafes } from 'src/app/models/Cafes';
-import { Metodo } from 'src/app/models/Metodos';
-import { MetodosService } from 'src/app/services/metodos.service';
+import { Coffees } from 'src/app/models/Coffees';
+import { Methods } from 'src/app/models/Methods';
+import { MethodsService } from 'src/app/services/methods.service';
 
 @Component({
   selector: 'app-editar',
@@ -13,19 +13,19 @@ import { MetodosService } from 'src/app/services/metodos.service';
 export class EditarComponent implements OnInit{
 
   editForm!: FormGroup;
-  metodo?: Metodo;
-  cafe?: Cafes[];
+  metodo?: Methods;
+  cafe?: Coffees[];
   receitasVisible: boolean = false;
   shouldSubmitForm: boolean = true;
 
-  constructor(private formBuilder: FormBuilder, private metodosService: MetodosService, private route: ActivatedRoute, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private metodosService: MethodsService, private route: ActivatedRoute, private router: Router) {
   }
   
   ngOnInit() {
 
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.metodosService.GetMetodoById(id).subscribe((data)=>{
+    this.metodosService.GetMethodsById(id).subscribe((data)=>{
    
     this.metodo = data.dados; 
     console.log(this.metodo)
@@ -48,7 +48,7 @@ export class EditarComponent implements OnInit{
   }
 
 
-  private ObterCafes(metodo: Metodo){
+  private ObterCafes(metodo: Methods){
     const cafesTest = [];
     console.log(metodo.cafes)
     if(metodo.cafes){
@@ -62,7 +62,7 @@ export class EditarComponent implements OnInit{
 
 
 
-  private criarCafes(cafes?: Cafes){
+  private criarCafes(cafes?: Coffees){
     return this.formBuilder.group({
       id: [cafes?.id],
       variacao: [cafes?.variacao, Validators.required],
@@ -80,7 +80,7 @@ export class EditarComponent implements OnInit{
     if(!this.shouldSubmitForm){
       event.preventDefault();
     }
-    this.metodosService.EditarMetodo(this.editForm.value).subscribe((data)=>{
+    this.metodosService.UpdateMethods(this.editForm.value).subscribe((data)=>{
       this.router.navigate(['/administrador'])
     })
    console.log(this.editForm.value)

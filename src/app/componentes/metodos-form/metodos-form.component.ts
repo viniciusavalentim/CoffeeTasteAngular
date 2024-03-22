@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormArray, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
-import { Cafes } from 'src/app/models/Cafes';
-import { Metodo } from 'src/app/models/Metodos';
-import { MetodosService } from 'src/app/services/metodos.service';
+import { Coffees } from 'src/app/models/Coffees';
+import { Methods } from 'src/app/models/Methods';
+import { MethodsService } from 'src/app/services/methods.service';
 
 @Component({
   selector: 'app-metodos-form',
@@ -13,11 +13,11 @@ import { MetodosService } from 'src/app/services/metodos.service';
 export class MetodosFormComponent  implements OnInit{
   
   
-  @Output() onSubmit = new EventEmitter<Metodo>();
+  @Output() onSubmit = new EventEmitter<Methods>();
 
   metodoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private metodosService: MetodosService, private router: Router) {
+  constructor(private fb: FormBuilder, private metodosService: MethodsService, private router: Router) {
   }
 
   ngOnInit() {
@@ -53,7 +53,7 @@ export class MetodosFormComponent  implements OnInit{
 
       console.log("opa, chegou antes!")
       console.log(metodoData)
-      this.metodosService.CreateMetodo(metodoData).subscribe((data) =>{
+      this.metodosService.CreateMethods(metodoData).subscribe((data) =>{
         console.log("chegou?")
         console.log(data);
         this.router.navigate(['/administrador'])

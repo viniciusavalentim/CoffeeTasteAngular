@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MetodosService } from 'src/app/services/metodos.service';
+import { MethodsService } from 'src/app/services/methods.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Metodo } from 'src/app/models/Metodos';
+import { Methods } from 'src/app/models/Methods';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cafes } from 'src/app/models/Cafes';
-import { Receitas } from 'src/app/models/Receitas';
+import { Coffees } from 'src/app/models/Coffees';
+import { Revenues } from 'src/app/models/Revenues';
+import { CoffeeService } from 'src/app/services/coffee.service';
 
 @Component({
   selector: 'app-administrador',
@@ -16,13 +17,13 @@ export class AdministradorComponent implements OnInit{
 
   opcoesMetodos: boolean = true;
   aux: number = 0;
-  metodos: Metodo[] = [];
-  metodosGeral: Metodo[] = [];
-  cafes: Cafes[] = [];
-  cafesMetodos: Metodo[] = [];
-  cafesComBaseNoId: Cafes[] = [];
-  receitaComBaseNoId: Receitas[] = [];
-  receitaSelecionada: Receitas | null = null;
+  metodos: Methods[] = [];
+  metodosGeral: Methods[] = [];
+  cafes: Coffees[] = [];
+  cafesMetodos: Methods[] = [];
+  cafesComBaseNoId: Coffees[] = [];
+  receitaComBaseNoId: Revenues[] = [];
+  receitaSelecionada: Revenues | null = null;
   idMetodo?: number;
   idMetodoGet?: number;
   idCafe?: number;
@@ -32,11 +33,11 @@ export class AdministradorComponent implements OnInit{
   quantidadeDeCafe: number = 0;
 
 
-  constructor(public metodosService: MetodosService, private route: ActivatedRoute, private router: Router){}
+  constructor(public metodosService: MethodsService, public coffeeService: CoffeeService,private route: ActivatedRoute, private router: Router){}
 
   
     ngOnInit(): void {
-      this.metodosService.GetMetodos().subscribe(data =>{
+      this.metodosService.GetMethods().subscribe(data =>{
         const dados = data.dados;
         dados.map((item) =>{
           this.cafes = item.cafes;
@@ -47,7 +48,7 @@ export class AdministradorComponent implements OnInit{
       
       });
 
-      this.metodosService.GetCafes().subscribe(data =>{
+      this.coffeeService.GetCoffees().subscribe(data =>{
         const dados = data.dados;
         dados.map((item) =>{
 
@@ -57,13 +58,13 @@ export class AdministradorComponent implements OnInit{
 
     }
 
-    GetId(metodo: Metodo)
+    GetId(metodo: Methods)
     {
       const id = metodo.id;
       this.idMetodo = id;
     }
 
-    GetIdCafe(cafe: Cafes)
+    GetIdCafe(cafe: Coffees)
     {
       const id = cafe.id;
       this.idCafe = id;
@@ -74,7 +75,7 @@ export class AdministradorComponent implements OnInit{
     getCafeByMetodo(){
       this.idMetodoGet = Number(this.idMetodo);
 
-      this.metodosService.GetCafeByMetodo(this.idMetodoGet).subscribe((data) =>{
+      this.coffeeService.GetCoffeeByMethods(this.idMetodoGet).subscribe((data) =>{
         const dados = data.dados;
         this.cafesComBaseNoId = dados;
       })
@@ -83,7 +84,7 @@ export class AdministradorComponent implements OnInit{
     getReceitaByCafe(){
       this.idCafeGet = Number(this.idCafe);
 
-      this.metodosService.GetReceitaByCafe(this.idCafeGet).subscribe((data) =>{
+      this.coffeeService.GetRevenuesByCafe(this.idCafeGet).subscribe((data) =>{
         const dados = data.dados
         this.receitaComBaseNoId = dados
         console.log(dados);

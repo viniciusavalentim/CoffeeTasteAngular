@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Metodo } from '../models/Metodos';
-import { MetodosService } from '../services/metodos.service';
-import { Cafes } from '../models/Cafes';
+import { Component, OnInit, numberAttribute } from '@angular/core';
+import { Methods } from '../models/Methods';
+import { MethodsService } from '../services/methods.service';
+import { Coffees } from '../models/Coffees';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Receitas } from '../models/Receitas';
-import { BebidasGeladas } from '../models/BebidasGeladas';
+import { Revenues } from '../models/Revenues';
+import { IceDrinks } from '../models/IceDrinks';
+import { IceDrinksService } from '../services/Ice-drinks.service';
+import { CoffeeService } from '../services/coffee.service';
 
 
 @Component({
@@ -15,13 +17,13 @@ import { BebidasGeladas } from '../models/BebidasGeladas';
 export class HomeComponent implements OnInit{
 
   aux: number = 0;
-  metodos: Metodo[] = [];
-  metodosGeral: Metodo[] = [];
-  cafes: Cafes[] = [];
-  cafesMetodos: Metodo[] = [];
-  cafesComBaseNoId: Cafes[] = [];
-  receitaComBaseNoId: Receitas[] = [];
-  receitaSelecionada: Receitas | null = null;
+  metodos: Methods[] = [];
+  metodosGeral: Methods[] = [];
+  cafes: Coffees[] = [];
+  cafesMetodos: Methods[] = [];
+  cafesComBaseNoId: Coffees[] = [];
+  receitaComBaseNoId: Revenues[] = [];
+  receitaSelecionada: Revenues | null = null;
   idMetodo?: number;
   idMetodoGet?: number;
   idCafe?: number;
@@ -32,25 +34,27 @@ export class HomeComponent implements OnInit{
   quantidadeDeCafe: number = 0;
 
 
-  GetBebidasGeladas?: BebidasGeladas[];
+  GetBebidasGeladas?: IceDrinks[];
   BebidasGeladasVisible: boolean = false;
 
 
   bebidasQuentesVisible: boolean = false;
+  IdBebidasGeladas?: number;
+  idBebidasGeladasGet?: number;
 
 
-  constructor(public metodosService: MetodosService, private route: ActivatedRoute, private router: Router){}
+  constructor(public metodosService: MethodsService,public bebidasGeladasService: IceDrinksService, public coffeeService: CoffeeService, private route: ActivatedRoute, private router: Router){}
 
   
     ngOnInit(): void {
-      this.metodosService.GetMetodos().subscribe(data =>{
+      this.metodosService.GetMethods().subscribe(data =>{
         const dados = data.dados;
         dados.map((item) =>{
         });
         this.metodos = dados;
       });
 
-      this.metodosService.GetCafes().subscribe(data =>{
+      this.coffeeService.GetCoffees().subscribe(data =>{
         const dados = data.dados;
         console.log(data)
 
@@ -59,18 +63,31 @@ export class HomeComponent implements OnInit{
         this.cafes = dados;
       });
 
-      this.metodosService.GetBebidasGeladas().subscribe(data =>{
+      this.bebidasGeladasService.GetIceDrinks().subscribe(data =>{
         const dados = data.dados;
         dados.map((item) =>{
-          console.log(item.ingredientes)
+          this.IdBebidasGeladas = item.id
         });
         this.GetBebidasGeladas = dados;
         
-      })
+      });
+
+   
       
+    };
+
+    GetIngredientesById(){
+      this.idBebidasGeladasGet = Number(this.IdBebidasGeladas);
+      this.bebidasGeladasService.GetIngredientsByIceDrinks(this.idBebidasGeladasGet).subscribe(data=>{
+        console.log(data.dados);
+      });
+    };
+
+    GetIdBebidasGeladas(bg: IceDrinks){
+      this.IdBebidasGeladas = bg.id;
     }
     
-    GetId(metodo: Metodo)
+    GetId(metodo: Methods)
     {
       const id = metodo.id;
       this.idMetodo = id;
@@ -78,7 +95,7 @@ export class HomeComponent implements OnInit{
       
     }
 
-    GetIdCafe(cafe: Cafes)
+    GetIdCafe(cafe: Coffees)
     {
       const id = cafe.id;
       this.idCafe = id;
@@ -89,7 +106,7 @@ export class HomeComponent implements OnInit{
     getCafeByMetodo(){
       this.idMetodoGet = Number(this.idMetodo);
 
-      this.metodosService.GetCafeByMetodo(this.idMetodoGet).subscribe((data) =>{
+      this.coffeeService.GetCoffeeByMethods(this.idMetodoGet).subscribe((data) =>{
         const dados = data.dados;
         this.cafesComBaseNoId = dados;
       })
@@ -102,7 +119,7 @@ export class HomeComponent implements OnInit{
     getReceitaByCafe(){
       this.idCafeGet = Number(this.idCafe);
 
-      this.metodosService.GetReceitaByCafe(this.idCafeGet).subscribe((data) =>{
+      this.coffeeService.GetRevenuesByCafe(this.idCafeGet).subscribe((data) =>{
         const dados = data.dados
         this.receitaComBaseNoId = dados
         dados.map((item) =>{

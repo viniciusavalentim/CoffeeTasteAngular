@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cafes } from 'src/app/models/Cafes';
-import { MetodosService } from 'src/app/services/metodos.service';
+import { Coffees } from 'src/app/models/Coffees';
+import { CoffeeService } from 'src/app/services/coffee.service';
+import { MethodsService } from 'src/app/services/methods.service';
 
 @Component({
   selector: 'app-criar-cafe',
@@ -12,9 +13,9 @@ import { MetodosService } from 'src/app/services/metodos.service';
 export class CriarCafeComponent implements OnInit{
 
   cafeForm!: FormGroup;
-  cafe!: Cafes;
+  cafe!: Coffees;
 
-  constructor(private fb: FormBuilder, private metodosService: MetodosService, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private metodosService: MethodsService, public coffeService: CoffeeService,private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -34,7 +35,7 @@ export class CriarCafeComponent implements OnInit{
   {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     console.log(id)
-    this.metodosService.CreateCafe(id, this.cafeForm.value).subscribe((data)=>{
+    this.coffeService.CreateCoffee(id, this.cafeForm.value).subscribe((data)=>{
       console.log(data)
       console.log(this.cafeForm.value)
       this.router.navigate(['/administrador'])

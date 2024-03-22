@@ -16,12 +16,6 @@
       <button (click)="showCategorias()" class="btn-home">Chás</button>
       <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
     </div>
-
-
-
-
-
-    
   
     <h3 class="text-category" *ngIf="isMetodosVisible">Métodos</h3>
     <div class="barra"*ngIf="isMetodosVisible"></div>
@@ -62,9 +56,9 @@
 
         </div>
     </div>
+
     <h3 class="text-category" *ngIf="isCafesVisible">Variedades</h3>
     <div class="barra" *ngIf="isCafesVisible"></div>
-
 
     <section id="cafes-page">
 
@@ -77,8 +71,6 @@
       </div>
 
     </section>
-
-
 
 
     <section id="receitas-page">
@@ -177,7 +169,7 @@
     <div class="barra" *ngIf="BebidasGeladasVisible"></div>
     <div *ngIf="BebidasGeladasVisible">
       <div *ngFor="let item of GetBebidasGeladas">
-        <button class="btn-bebidasgeladas">{{item.nome}}</button>
+        <button (click)="GetIdBebidasGeladas(item)" (click)="GetIngredientesById()" class="btn-bebidasgeladas" >{{item.nome}}</button>
       </div>
 
       <div> 

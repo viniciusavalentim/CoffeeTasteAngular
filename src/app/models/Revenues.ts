@@ -1,4 +1,4 @@
-export interface Receitas{
+export interface Revenues{
     id?: number;
     quantidadeDeCafe: number;
     quantidadeDeAgua: number;

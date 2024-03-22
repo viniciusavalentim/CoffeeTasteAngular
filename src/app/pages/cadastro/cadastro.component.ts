@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Metodo } from 'src/app/models/Metodos';
-import { MetodosService } from 'src/app/services/metodos.service';
+import { Methods } from 'src/app/models/Methods';
+import { MethodsService } from 'src/app/services/methods.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -9,11 +9,11 @@ import { MetodosService } from 'src/app/services/metodos.service';
 })
 export class CadastroComponent {
 
-  constructor(private metodoService: MetodosService){}
+  constructor(private metodoService: MethodsService){}
 
-  createMetodo(metodo: Metodo)
+  createMetodo(metodo: Methods)
   {
-    this.metodoService.CreateMetodo(metodo).subscribe((data) =>{
+    this.metodoService.CreateMethods(metodo).subscribe((data) =>{
       console.log("chegou?")
       console.log(data);
     })
