@@ -164,18 +164,26 @@
     </section>
    
     
-    <!--BEBIDAS GELADAS-->
-    <h3 class="text-category" *ngIf="BebidasGeladasVisible">Bebidas Geladas</h3>
-    <div class="barra" *ngIf="BebidasGeladasVisible"></div>
-    <div *ngIf="BebidasGeladasVisible">
-      <div *ngFor="let item of GetBebidasGeladas">
-        <button (click)="GetIdBebidasGeladas(item)" (click)="GetIngredientesById()" class="btn-bebidasgeladas" >{{item.nome}}</button>
-      </div>
+      <!--BEBIDAS GELADAS-->
+      <h3 class="text-category" *ngIf="BebidasGeladasVisible">Bebidas Geladas</h3>
+      <div class="barra" *ngIf="BebidasGeladasVisible"></div>
 
-      <div> 
-        
+        <div *ngIf="BebidasGeladasVisible" class="container-metodos">
+          <div *ngFor="let item of GetBebidasGeladas">
+            <button (click)="GetIdBebidasGeladas(item)" (click)="GetIngredientesById()" (click)="showRevenues()" class="btn-bebidasgeladas" >{{item.nome}}</button>
+          </div>
+
+
+          <div class="receita-box" *ngIf="revenuesIceDrinksIsVisible">
+            <div *ngFor="let item of ingredients">
+              <h3>{{item.nome}}: {{item.quantidade}}{{item.unidade}}</h3>
+            </div>
+          </div>
+    
+        <div> 
+          
       </div>    
-    </div>
+  </div>
 
     <!--BEBIDAS QUNTES-->
       <h3 class="text-category" *ngIf="bebidasQuentesVisible">Bebidas Quentes</h3>

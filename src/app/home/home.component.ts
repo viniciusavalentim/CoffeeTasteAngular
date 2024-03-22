@@ -7,6 +7,7 @@ import { Revenues } from '../models/Revenues';
 import { IceDrinks } from '../models/IceDrinks';
 import { IceDrinksService } from '../services/Ice-drinks.service';
 import { CoffeeService } from '../services/coffee.service';
+import { Ingredients } from '../models/Ingredients';
 
 
 @Component({
@@ -38,9 +39,11 @@ export class HomeComponent implements OnInit{
   BebidasGeladasVisible: boolean = false;
 
 
+  revenuesIceDrinksIsVisible: boolean = false;
   bebidasQuentesVisible: boolean = false;
   IdBebidasGeladas?: number;
   idBebidasGeladasGet?: number;
+  ingredients?: Ingredients[];
 
 
   constructor(public metodosService: MethodsService,public bebidasGeladasService: IceDrinksService, public coffeeService: CoffeeService, private route: ActivatedRoute, private router: Router){}
@@ -80,6 +83,7 @@ export class HomeComponent implements OnInit{
       this.idBebidasGeladasGet = Number(this.IdBebidasGeladas);
       this.bebidasGeladasService.GetIngredientsByIceDrinks(this.idBebidasGeladasGet).subscribe(data=>{
         console.log(data.dados);
+        this.ingredients = data.dados;
       });
     };
 
@@ -147,12 +151,14 @@ export class HomeComponent implements OnInit{
       this.isReceitasVisible = false;
       this.BebidasGeladasVisible = false;
       this.bebidasQuentesVisible = false
+      this.revenuesIceDrinksIsVisible = false
     }
   
     showMetodos() {
       this.isMetodosVisible = true;
       this.isCafesVisible = true;
       this.isReceitasVisible = false;
+
     }
   
     showCafes() {
@@ -177,6 +183,10 @@ export class HomeComponent implements OnInit{
       this.bebidasQuentesVisible = true;
       this.BebidasGeladasVisible = false;
       
+    }
+
+    showRevenues(){
+      this.revenuesIceDrinksIsVisible = true
     }
 
 
