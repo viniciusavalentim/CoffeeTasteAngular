@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { IceDrinks } from '../models/IceDrinks';
 import { Observable } from 'rxjs';
 import { Response } from '../models/Response';
-import { Ingredients } from '../models/Ingredients';
+import { IngredientsIceDrinks } from '../models/IngredientsIcedDrinks';
 
 
 @Injectable({
@@ -20,8 +20,8 @@ export class IceDrinksService {
     return this.http.get<Response<IceDrinks[]>>(`${this.apiUrl}`)
   };
 
-  GetIngredientsByIceDrinks(id: number): Observable<Response<Ingredients[]>> {
-    return this.http.get<Response<Ingredients[]>>(`${this.apiUrl}/${id}`);
+  GetIngredientsByIceDrinks(id: number): Observable<Response<IngredientsIceDrinks[]>> {
+    return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/${id}`);
   };
 
 }

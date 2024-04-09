@@ -7,7 +7,7 @@ import { Revenues } from '../models/Revenues';
 import { IceDrinks } from '../models/IceDrinks';
 import { IceDrinksService } from '../services/Ice-drinks.service';
 import { CoffeeService } from '../services/coffee.service';
-import { Ingredients } from '../models/Ingredients';
+import { IngredientsIceDrinks } from '../models/IngredientsIcedDrinks';
 
 
 @Component({
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit{
   bebidasQuentesVisible: boolean = false;
   IdBebidasGeladas?: number;
   idBebidasGeladasGet?: number;
-  ingredients?: Ingredients[];
+  ingredients?: IngredientsIceDrinks[];
 
 
   constructor(public metodosService: MethodsService,public bebidasGeladasService: IceDrinksService, public coffeeService: CoffeeService, private route: ActivatedRoute, private router: Router){}

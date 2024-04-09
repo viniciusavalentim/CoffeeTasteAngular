@@ -1,7 +1,7 @@
 import { IngredientsIceDrinks } from "./IngredientsIcedDrinks";
 
 
-export interface IceDrinks{
+export interface Hotdrinks{
     id?: number;
     name: string;
     observacoes: string;
