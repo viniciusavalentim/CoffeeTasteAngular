@@ -1,0 +1,12 @@
+<h3 class="text-category" >Bebidas Geladas</h3>
+<div class="barra"></div>
+
+<div class="container-metodos">
+  <div *ngFor="let item of GetIcedDrinks">
+    <button class="btn-bebidasgeladas" (click)="ShowIngredientsIcedDrinks()">{{item.name}}</button>
+  </div>
+</div>
+
+<div *ngIf="revenuesIceDrinksIsVisible">
+    oiiiii safadinhuuuuuuuhhh
+</div>

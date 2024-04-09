@@ -12,6 +12,8 @@ import { EditarComponent } from './pages/editarCafes/editar.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { MetodosFormComponent } from './componentes/metodos-form/metodos-form.component';
 import { CriarCafeComponent } from './pages/criar-cafe/criar-cafe.component';
+import { HotDrinksComponent } from './pages-home/hot-drinks/hot-drinks.component';
+import { IcedDrinksComponent } from './pages-home/iced-drinks/iced-drinks.component';
 
 
 
@@ -23,7 +25,9 @@ import { CriarCafeComponent } from './pages/criar-cafe/criar-cafe.component';
     EditarComponent,
     CadastroComponent,
     MetodosFormComponent,
-    CriarCafeComponent
+    CriarCafeComponent,
+    HotDrinksComponent,
+    IcedDrinksComponent
   ],
   imports: [
     BrowserModule,

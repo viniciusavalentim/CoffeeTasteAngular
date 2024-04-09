@@ -3,7 +3,7 @@ import { Ingredients } from "./Ingredients";
 
 export interface IceDrinks{
     id?: number;
-    nome: string;
+    name: string;
     observacoes: string;
     ingredientes: Ingredients[];
 }

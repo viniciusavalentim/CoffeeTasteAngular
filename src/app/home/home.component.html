@@ -7,28 +7,30 @@
 
   <div class="container">
     <div class="container-btn">
-      <a href="#metodos-page"> 
+      <a href="#metodos-page">
         <button (click)="showCategorias()" class="btn-home">Métodos</button>
       </a>
       <button (click)="showCategorias()" class="btn-home">Espressos</button>
-      <button (click)="showBebidasGeladas()" (click)="Limpar()" class="btn-home" >Bebidas Geladas</button>
+      <a href="#iced-drink-page">
+        <button (click)="showBebidasGeladas()" (click)="Limpar()" class="btn-home" >Bebidas Geladas</button>
+      </a>
       <button (click)="showBebidasQuentes()" (click)="Limpar()" class="btn-home">Bebidas Quentes</button>
       <button (click)="showCategorias()" class="btn-home">Chás</button>
       <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
     </div>
-  
+
     <h3 class="text-category" *ngIf="isMetodosVisible">Métodos</h3>
     <div class="barra"*ngIf="isMetodosVisible"></div>
-  
+
     <section id="metodos-page"></section>
     <div *ngIf="isMetodosVisible" class="container-metodos">
-       
+
         <div *ngFor="let metodo of metodos" class="btn-metodos-exit">
-          
+
           <a href="#cafes-page">
 
             <button (click)="showMetodos()" (click)="GetId(metodo)" (click)="getCafeByMetodo()" class="btn-metodos">
-            
+
               <div *ngIf="metodo.metodos == 'Clever'">
                 <img src="https://i.im.ge/2024/02/17/cGUg2y.WhatsApp-Image-2024-02-16-at-22-46-16-removebg-preview.png" alt="" width="45px" height="45px">
               </div>
@@ -75,21 +77,21 @@
 
     <section id="receitas-page">
 
-      <div *ngIf="isReceitasVisible"> 
+      <div *ngIf="isReceitasVisible">
         <h2 class="text-category" class="receita">{{variacao}}</h2>
-  
+
         <div class="receita-box">
             <div *ngFor="let receita of receitaComBaseNoId" class="receitas">
-  
-  
+
+
               <div *ngIf="metodoView == 'v60'" class="v60-receita" >
                 <div class="line">
-  
+
                   <div class="box-with-word">
                     <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
                     <span class="word-metodos">v60</span>
                   </div>
-               
+
                   <div class="box-with-word">
                     <img src="https://i.im.ge/2024/02/21/g0XBaG.Adobe-Express-20240220-1115370-1.png" alt="" width="45px" height="45px">
                     <span class="word-metodos">{{variacao}}</span>
@@ -97,10 +99,10 @@
                   <div class="box-with-word">
                     <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
                     <span class="word-metodos">filtro v60</span>
-                  </div>  
-  
+                  </div>
+
                 </div>
-  
+
                 <div class="line">
                   <div class="box-with-word">
                     <img src="https://i.im.ge/2024/02/21/g0loKS.My-project-removebg-preview.png" alt="" width="45px" height="45px">
@@ -109,9 +111,9 @@
                     <img src="https://i.im.ge/2024/02/21/g0XviT.Adobe-Express-20240220-1117170-1.png" alt="" width="45px" height="45px">
                   </div>
                 </div>
-  
+
               </div>
-              
+
               <div *ngIf="metodoView == 'Aeropress'" class="aeropress-receita" >
                 <h1>oi</h1>
               </div>
@@ -127,12 +129,12 @@
               <div *ngIf="metodoView == 'Clever'" class="clever-receita" >
                 <h1>oi</h1>
               </div>
-  
-  
-  
-  
-              
-  
+
+
+
+
+
+
               <h3>
                 <img src="https://cdn-icons-png.flaticon.com/256/7733/7733708.png" alt="" width="16" height="16">
                 Ratio: </h3>
@@ -155,35 +157,21 @@
               <P>2º pulso: inteirar 160ml de água entre <br> 30s até 1:15s</P>
               <P>3º pulso: Finalizar com 250ml até 1:40</P>
               <h2>Parar extração em 2:30s</h2>
-          
+
             </div>
         </div>
-    
+
+
       </div>
 
     </section>
-   
-    
-      <!--BEBIDAS GELADAS-->
-      <h3 class="text-category" *ngIf="BebidasGeladasVisible">Bebidas Geladas</h3>
-      <div class="barra" *ngIf="BebidasGeladasVisible"></div>
-
-        <div *ngIf="BebidasGeladasVisible" class="container-metodos">
-          <div *ngFor="let item of GetBebidasGeladas">
-            <button (click)="GetIdBebidasGeladas(item)" (click)="GetIngredientesById()" (click)="showRevenues()" class="btn-bebidasgeladas" >{{item.nome}}</button>
-          </div>
 
 
-          <div class="receita-box" *ngIf="revenuesIceDrinksIsVisible">
-            <div *ngFor="let item of ingredients">
-              <h3>{{item.nome}}: {{item.quantidade}}{{item.unidade}}</h3>
-            </div>
-          </div>
-    
-        <div> 
-          
-      </div>    
-  </div>
+    <section id="iced-drink-page"></section>
+    <app-iced-drinks
+    *ngIf="icedDrinksVisible"
+    ></app-iced-drinks>
+    <!--BEBIDAS GELADAS-->
 
     <!--BEBIDAS QUNTES-->
       <h3 class="text-category" *ngIf="bebidasQuentesVisible">Bebidas Quentes</h3>
@@ -195,7 +183,7 @@
 
 
   </div>
-  
+
      <div class="footer">
       <span>COFFEETASTE by Vinicius</span>
      </div>
@@ -203,7 +191,7 @@
 
 
 
-  
+
 
 
 

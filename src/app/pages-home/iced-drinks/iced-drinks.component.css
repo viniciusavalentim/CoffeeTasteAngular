@@ -1,0 +1,56 @@
+.text-category{
+
+  font-size: 22px;
+  font-weight: 500;
+  color: #343A42;
+}
+.barra{
+  width: 150px;
+  height: 1px;
+  background-color: #343A42;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.container-metodos{
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.btn-bebidasgeladas{
+  width: 100px;
+  height: 90px;
+  background-color: #343A42;
+  color: #B5B5B5;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  align-items: center;
+}
+
+.receita{
+  text-align: center;
+  font-weight: 400;
+}
+
+.receita-box > .receitas > .v60-receita > .line{
+  display: flex;
+  justify-content: center;
+}
+
+.receita-box > .receitas > .v60-receita > .line > .box-with-word{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin-left: 15px;
+
+}
+

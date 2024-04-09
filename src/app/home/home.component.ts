@@ -36,8 +36,7 @@ export class HomeComponent implements OnInit{
 
 
   GetBebidasGeladas?: IceDrinks[];
-  BebidasGeladasVisible: boolean = false;
-
+  icedDrinksVisible: boolean = false;
 
   revenuesIceDrinksIsVisible: boolean = false;
   bebidasQuentesVisible: boolean = false;
@@ -48,7 +47,7 @@ export class HomeComponent implements OnInit{
 
   constructor(public metodosService: MethodsService,public bebidasGeladasService: IceDrinksService, public coffeeService: CoffeeService, private route: ActivatedRoute, private router: Router){}
 
-  
+
     ngOnInit(): void {
       this.metodosService.GetMethods().subscribe(data =>{
         const dados = data.dados;
@@ -72,11 +71,11 @@ export class HomeComponent implements OnInit{
           this.IdBebidasGeladas = item.id
         });
         this.GetBebidasGeladas = dados;
-        
+
       });
 
-   
-      
+
+
     };
 
     GetIngredientesById(){
@@ -90,13 +89,13 @@ export class HomeComponent implements OnInit{
     GetIdBebidasGeladas(bg: IceDrinks){
       this.IdBebidasGeladas = bg.id;
     }
-    
+
     GetId(metodo: Methods)
     {
       const id = metodo.id;
       this.idMetodo = id;
       this.metodoView = metodo.metodos
-      
+
     }
 
     GetIdCafe(cafe: Coffees)
@@ -119,7 +118,7 @@ export class HomeComponent implements OnInit{
     getVariacao(variacaoMetodo: string){
       this.variacao = variacaoMetodo
     }
-    
+
     getReceitaByCafe(){
       this.idCafeGet = Number(this.idCafe);
 
@@ -134,7 +133,7 @@ export class HomeComponent implements OnInit{
 
       })
 
- 
+
     }
     GetByDivision(){
       return this.metodos
@@ -143,30 +142,30 @@ export class HomeComponent implements OnInit{
     isMetodosVisible: boolean = true;
     isCafesVisible: boolean = false;
     isReceitasVisible: boolean = false;
-  
-  
+
+
     showCategorias() {
       this.isMetodosVisible = true;
       this.isCafesVisible = false;
       this.isReceitasVisible = false;
-      this.BebidasGeladasVisible = false;
+      this.icedDrinksVisible = false;
       this.bebidasQuentesVisible = false
       this.revenuesIceDrinksIsVisible = false
     }
-  
+
     showMetodos() {
       this.isMetodosVisible = true;
       this.isCafesVisible = true;
       this.isReceitasVisible = false;
 
     }
-  
+
     showCafes() {
       this.isMetodosVisible = true;
       this.isCafesVisible = true;
       this.isReceitasVisible = true;
     }
-  
+
     Limpar(){
       this.isMetodosVisible = false;
       this.isCafesVisible = false;
@@ -175,14 +174,14 @@ export class HomeComponent implements OnInit{
 
 
     showBebidasGeladas(){
-      this.BebidasGeladasVisible = true;
+      this.icedDrinksVisible = true;
       this.bebidasQuentesVisible = false;
     }
 
     showBebidasQuentes(){
       this.bebidasQuentesVisible = true;
-      this.BebidasGeladasVisible = false;
-      
+      this.icedDrinksVisible = false;
+
     }
 
     showRevenues(){
