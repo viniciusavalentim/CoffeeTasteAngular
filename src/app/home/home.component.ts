@@ -1,3 +1,4 @@
+import { Hotdrinks } from './../models/HotDrinks';
 import { Component, OnInit, numberAttribute } from '@angular/core';
 import { Methods } from '../models/Methods';
 import { MethodsService } from '../services/methods.service';
@@ -39,11 +40,11 @@ export class HomeComponent implements OnInit{
   icedDrinksVisible: boolean = false;
 
   revenuesIceDrinksIsVisible: boolean = false;
-  bebidasQuentesVisible: boolean = false;
   IdBebidasGeladas?: number;
   idBebidasGeladasGet?: number;
   ingredients?: IngredientsIceDrinks[];
 
+  hotDrinksVisible?: boolean = false;
 
   constructor(public metodosService: MethodsService,public bebidasGeladasService: IceDrinksService, public coffeeService: CoffeeService, private route: ActivatedRoute, private router: Router){}
 
@@ -149,7 +150,7 @@ export class HomeComponent implements OnInit{
       this.isCafesVisible = false;
       this.isReceitasVisible = false;
       this.icedDrinksVisible = false;
-      this.bebidasQuentesVisible = false
+      this.hotDrinksVisible = false
       this.revenuesIceDrinksIsVisible = false
     }
 
@@ -172,21 +173,29 @@ export class HomeComponent implements OnInit{
       this.isReceitasVisible = false;
     }
 
-
-    showBebidasGeladas(){
-      this.icedDrinksVisible = true;
-      this.bebidasQuentesVisible = false;
+    showHotDrinks(){
+      this.isMetodosVisible = false;
+      this.isCafesVisible = false;
+      this.isReceitasVisible = false;
+      this.icedDrinksVisible = false;
+      this.hotDrinksVisible = true;
+      this.revenuesIceDrinksIsVisible = false
     }
 
-    showBebidasQuentes(){
-      this.bebidasQuentesVisible = true;
-      this.icedDrinksVisible = false;
-
+    showIcedDrinks(){
+      this.isMetodosVisible = false;
+      this.isCafesVisible = false;
+      this.isReceitasVisible = false;
+      this.icedDrinksVisible = true;
+      this.hotDrinksVisible = false
+      this.revenuesIceDrinksIsVisible = false
     }
 
     showRevenues(){
       this.revenuesIceDrinksIsVisible = true
     }
+
+
 
 
 }

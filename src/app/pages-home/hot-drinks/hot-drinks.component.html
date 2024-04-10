@@ -1,1 +1,23 @@
-<p>hot-drinks works!</p>
+<div class="box-barra-text-hotDrinks">
+  <h3 class="text-category" >Bebidas Quentes</h3>
+  <div class="barra"></div>
+</div>
+
+
+
+<div class="container-hotDrinks">
+  <div *ngFor="let item of GetHotDrinks">
+    <button class="btn-hotDrinks"
+    (click)="ShowIngredientsHotDrinks()"
+    (click)="GetIngredientsByHotDrink(item)"
+    (click)="GetObservacoes(item.observacoes)"
+    >{{item.name}}</button>
+  </div>
+</div>
+
+<div *ngIf="ingredientsHotDrinksVisible"  class="receita-box">
+  <div *ngFor="let item of GetIngredientsHotDrinks">
+      <h3>{{item.name}}: {{item.quantity}} {{item.unit}}</h3>
+      <h3>{{GetComments}}</h3>
+  </div>
+</div>

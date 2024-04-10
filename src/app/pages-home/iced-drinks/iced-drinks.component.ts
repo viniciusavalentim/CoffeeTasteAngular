@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IceDrinksService } from './../../services/Ice-drinks.service';
 import { Component, OnInit } from '@angular/core';
 import { IceDrinks } from 'src/app/models/IceDrinks';
+import { IngredientsIceDrinks as IngredientsIcedDrinks } from 'src/app/models/IngredientsIcedDrinks';
 
 @Component({
   selector: 'app-iced-drinks',
@@ -10,13 +11,16 @@ import { IceDrinks } from 'src/app/models/IceDrinks';
 })
 export class IcedDrinksComponent implements OnInit{
 
+  ingredientsIceDrinksVisible: boolean = false;
   GetIcedDrinks?: IceDrinks[];
-  revenuesIceDrinksIsVisible: boolean = false;
+  GetIngredientsIcedDrinks?: IngredientsIcedDrinks[];
+  GetComments!: string;
   iceDrinkId?: number;
 
-  constructor( public iceDrinksService: IceDrinksService, private route: ActivatedRoute, private router: Router) {}
+
+  constructor( public icedDrinksService: IceDrinksService, private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
-    this.iceDrinksService.GetIceDrinks().subscribe(data =>{
+    this.icedDrinksService.GetIceDrinks().subscribe(data =>{
       const dados = data.dados;
       dados.map((item) =>{
         this.iceDrinkId = item.id
@@ -24,11 +28,23 @@ export class IcedDrinksComponent implements OnInit{
       this.GetIcedDrinks = dados;
 
     });
-
   };
 
-  ShowIngredientsIcedDrinks(): boolean{
-    this.revenuesIceDrinksIsVisible = true;
-    return this.revenuesIceDrinksIsVisible;
+  GetObservacoes(observacoes: string)
+  {
+    this.GetComments = observacoes;
+  };
+
+  GetIngredientsByIcedDrink(icedDrinks: IceDrinks){
+    const icedDrinkId = Number(icedDrinks.id);
+    this.icedDrinksService.GetIngredientsByIceDrinks(icedDrinkId).subscribe(data=>{
+      const dados = data.dados;
+      this.GetIngredientsIcedDrinks = dados;
+    });
+  };
+
+  ShowIngredientsIcedDrinks(){
+    this.ingredientsIceDrinksVisible = true;
+    return this.ingredientsIceDrinksVisible;
   }
 }

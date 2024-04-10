@@ -21,7 +21,7 @@ export class IceDrinksService {
   };
 
   GetIngredientsByIceDrinks(id: number): Observable<Response<IngredientsIceDrinks[]>> {
-    return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/${id}`);
+    return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/IngredientBy/${id}`);
   };
 
 }

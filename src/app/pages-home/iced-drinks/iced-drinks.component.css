@@ -1,5 +1,12 @@
-.text-category{
+.box-barra-text-icedDrinks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
 
+
+.text-category{
   font-size: 22px;
   font-weight: 500;
   color: #343A42;
@@ -10,6 +17,8 @@
   background-color: #343A42;
   margin-top: 5px;
   margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
 }
 
 .container-metodos{
@@ -24,33 +33,22 @@
 
 .btn-bebidasgeladas{
   width: 100px;
-  height: 90px;
+  height: 100px;
   background-color: #343A42;
   color: #B5B5B5;
   border: none;
   border-radius: 10px;
-  margin-top: 15px;
+  margin-top: 8px;
   margin-bottom: 20px;
   font-size: 15px;
   align-items: center;
 }
 
-.receita{
-  text-align: center;
-  font-weight: 400;
-}
-
-.receita-box > .receitas > .v60-receita > .line{
-  display: flex;
-  justify-content: center;
-}
-
-.receita-box > .receitas > .v60-receita > .line > .box-with-word{
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- margin-left: 15px;
+.receita-box{
+  border: 1px solid black;
+  display: inline-block;
+  max-width: 100%;
+  padding: 30px;
 
 }
 

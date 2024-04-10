@@ -1,6 +1,6 @@
 
 
-  <div class="head">
+  <div class="head" id="start">
     <h1 class="title-head">COFFEETASTE</h1>
     <button class="admin-button-head"  routerLink="/administrador">Admin</button>
   </div>
@@ -12,9 +12,11 @@
       </a>
       <button (click)="showCategorias()" class="btn-home">Espressos</button>
       <a href="#iced-drink-page">
-        <button (click)="showBebidasGeladas()" (click)="Limpar()" class="btn-home" >Bebidas Geladas</button>
+        <button (click)="showIcedDrinks()" class="btn-home" >Bebidas Geladas</button>
       </a>
-      <button (click)="showBebidasQuentes()" (click)="Limpar()" class="btn-home">Bebidas Quentes</button>
+      <a href="#hot-drink-page">
+        <button (click)="showHotDrinks()" (click)="Limpar()" class="btn-home">Bebidas Quentes</button>
+      </a>
       <button (click)="showCategorias()" class="btn-home">Chás</button>
       <button (click)="showCategorias()" class="btn-home">Soft Drinks</button>
     </div>
@@ -166,22 +168,26 @@
 
     </section>
 
-
+    <!--Iced Drinks-->
     <section id="iced-drink-page"></section>
     <app-iced-drinks
     *ngIf="icedDrinksVisible"
     ></app-iced-drinks>
-    <!--BEBIDAS GELADAS-->
 
     <!--BEBIDAS QUNTES-->
-      <h3 class="text-category" *ngIf="bebidasQuentesVisible">Bebidas Quentes</h3>
-      <div class="barra" *ngIf="bebidasQuentesVisible"></div>
-      <div *ngIf="bebidasQuentesVisible">
-          <button class="btn-bebidasquentes">Teste</button>
-      </div>
+    <section id="hot-drink-page"></section>
+    <app-hot-drinks
+    *ngIf="hotDrinksVisible"
+    ></app-hot-drinks>
 
 
 
+  </div>
+
+  <div>
+    <a href="#start">
+      <button>Subir!</button>
+    </a>
   </div>
 
      <div class="footer">
