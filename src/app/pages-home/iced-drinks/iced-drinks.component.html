@@ -1,23 +1,28 @@
-<div class="box-barra-text-icedDrinks">
-  <h3 class="text-category" >Bebidas Geladas</h3>
-  <div class="barra"></div>
-</div>
-
-
-
-<div class="container-metodos">
-  <div *ngFor="let item of GetIcedDrinks">
-    <button class="btn-bebidasgeladas"
-    (click)="ShowIngredientsIcedDrinks()"
-    (click)="GetIngredientsByIcedDrink(item)"
-    (click)="GetObservacoes(item.observacoes)"
-    >{{item.name}}</button>
+<div class="icedDrinks">
+  <div class="box-barra-text-icedDrinks">
+    <h3 class="text-category" >Bebidas Geladas</h3>
+    <div class="barra"></div>
   </div>
+
+
+
+  <div class="container-metodos">
+    <div *ngFor="let item of GetIcedDrinks">
+      <button class="btn-bebidasgeladas"
+      (click)="ShowIngredientsIcedDrinks()"
+      (click)="GetIngredientsByIcedDrink(item)"
+      (click)="GetObservacoes(item.observacoes)"
+      >{{item.name}}</button>
+    </div>
+  </div>
+
+  <div *ngIf="ingredientsIceDrinksVisible"  class="receita-box" >
+    <div *ngFor="let item of GetIngredientsIcedDrinks">
+        <h3>{{item.name}}: {{item.quantity}} {{item.unit}};</h3>
+    </div>
+    <br>
+    <h3 class="h3">{{GetComments}}</h3>
+  </div>
+
 </div>
 
-<div *ngIf="ingredientsIceDrinksVisible"  class="receita-box" >
-  <div *ngFor="let item of GetIngredientsIcedDrinks">
-      <h3>{{item.name}}: {{item.quantity}} {{item.unit}}</h3>
-      <h3>{{GetComments}}</h3>
-  </div>
-</div>
