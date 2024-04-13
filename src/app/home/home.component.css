@@ -23,7 +23,6 @@
     margin-bottom: 60px;
 }
 
-
 .head > button{
     height: 40px;
     border-radius: 30px;
@@ -35,6 +34,24 @@
     font-weight: 300;
     font-size: 23px;
     margin-left: 15px;
+}
+
+.title-head{
+    .title-t{
+        color: red;
+    }
+    .title-a{
+        color: orange;
+    }
+    .title-s{
+        color: yellow;
+    }
+    .title-te{
+        color: green;
+    }
+    .title-e{
+        color: plum;
+    }
 }
 
 .admin-button-head {
