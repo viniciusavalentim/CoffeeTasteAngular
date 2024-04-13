@@ -13,8 +13,6 @@ const routes: Routes = [
   {path: 'administrador/editarMetodo/:id', component: EditarComponent},
   {path: 'administrador/criarCafe/:id', component: CriarCafeComponent}
 
-
-
 ];
 
 @NgModule({
