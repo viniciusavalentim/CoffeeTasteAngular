@@ -7,6 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Coffees } from 'src/app/models/Coffees';
 import { Revenues } from 'src/app/models/Revenues';
 import { CoffeeService } from 'src/app/services/coffee.service';
+import { IceDrinksService } from 'src/app/services/Ice-drinks.service';
+import { IceDrinks } from 'src/app/models/IceDrinks';
+import { Hotdrinks } from 'src/app/models/HotDrinks';
 
 @Component({
   selector: 'app-administrador',
@@ -14,6 +17,14 @@ import { CoffeeService } from 'src/app/services/coffee.service';
   styleUrls: ['./administrador.component.css']
 })
 export class AdministradorComponent implements OnInit{
+
+
+  showIcedDrinks: boolean = false;
+  icedDrinks!: IceDrinks[];
+
+  showHotDrinks: boolean = false;
+  hotDrinks!: Hotdrinks[];
+
 
   opcoesMetodos: boolean = true;
   aux: number = 0;
@@ -33,11 +44,11 @@ export class AdministradorComponent implements OnInit{
   quantidadeDeCafe: number = 0;
 
 
-  constructor(public metodosService: MethodsService, public coffeeService: CoffeeService,private route: ActivatedRoute, private router: Router){}
+  constructor(public methodsService: MethodsService, public coffeeService: CoffeeService, public icedDrinksService: IceDrinksService, private route: ActivatedRoute, private router: Router){}
 
-  
+
     ngOnInit(): void {
-      this.metodosService.GetMethods().subscribe(data =>{
+      this.methodsService.GetMethods().subscribe(data =>{
         const dados = data.dados;
         dados.map((item) =>{
           this.cafes = item.cafes;
@@ -45,7 +56,7 @@ export class AdministradorComponent implements OnInit{
         });
 
         this.metodos = dados;
-      
+
       });
 
       this.coffeeService.GetCoffees().subscribe(data =>{
@@ -54,7 +65,17 @@ export class AdministradorComponent implements OnInit{
 
         });
         this.cafes = dados;
-      })
+      });
+
+      this.icedDrinksService.GetIceDrinks().subscribe(data =>{
+        const dados = data.dados;
+        this.icedDrinks = dados;
+      });
+
+      this.methodsService.GetHotDrinks().subscribe(data =>{
+        const dados = data.dados;
+        this.hotDrinks = dados;
+      });
 
     }
 
@@ -80,7 +101,7 @@ export class AdministradorComponent implements OnInit{
         this.cafesComBaseNoId = dados;
       })
     }
-    
+
     getReceitaByCafe(){
       this.idCafeGet = Number(this.idCafe);
 
@@ -91,7 +112,7 @@ export class AdministradorComponent implements OnInit{
 
       })
 
- 
+
     }
 
     GetByDivision(){
@@ -100,10 +121,20 @@ export class AdministradorComponent implements OnInit{
 
   VerOpcoesMetodos()
   {
-    this.opcoesMetodos = true
+    this.opcoesMetodos = true;
+    this.showIcedDrinks = false;
+    this.showHotDrinks = false;
   }
-  Limpar()
-  {
+
+  ShowIcedDrinks(){
     this.opcoesMetodos = false;
+    this.showIcedDrinks = true;
+    this.showHotDrinks = false;
+  }
+
+  ShowHotDrinks(){
+    this.opcoesMetodos = false;
+    this.showIcedDrinks = false;
+    this.showHotDrinks = true;
   }
 }

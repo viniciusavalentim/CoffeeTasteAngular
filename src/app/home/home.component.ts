@@ -66,30 +66,8 @@ export class HomeComponent implements OnInit{
         this.cafes = dados;
       });
 
-      this.bebidasGeladasService.GetIceDrinks().subscribe(data =>{
-        const dados = data.dados;
-        dados.map((item) =>{
-          this.IdBebidasGeladas = item.id
-        });
-        this.GetBebidasGeladas = dados;
-
-      });
-
-
 
     };
-
-    GetIngredientesById(){
-      this.idBebidasGeladasGet = Number(this.IdBebidasGeladas);
-      this.bebidasGeladasService.GetIngredientsByIceDrinks(this.idBebidasGeladasGet).subscribe(data=>{
-        console.log(data.dados);
-        this.ingredients = data.dados;
-      });
-    };
-
-    GetIdBebidasGeladas(bg: IceDrinks){
-      this.IdBebidasGeladas = bg.id;
-    }
 
     GetId(metodo: Methods)
     {
@@ -193,6 +171,15 @@ export class HomeComponent implements OnInit{
 
     showRevenues(){
       this.revenuesIceDrinksIsVisible = true
+    }
+
+    limpar(){
+      this.isMetodosVisible = false;
+      this.isCafesVisible = false;
+      this.isReceitasVisible = false;
+      this.icedDrinksVisible = false;
+      this.hotDrinksVisible = false;
+      this.revenuesIceDrinksIsVisible = false;
     }
 
 

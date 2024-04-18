@@ -119,8 +119,8 @@
 
 
 .btn-metodos{
-    width: 110px;
-    height: 100px;
+    width: 100px;
+    height: 90px;
     background-color: #343A42;
     color: #B5B5B5;
     border: none;
@@ -229,6 +229,22 @@
     margin-top: 150px;
 }
 
+.button-up{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 80px;
+  margin-top: 80px;
+}
+
+.button-up > a >  .btn-up{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: absolute;
+  border: none;
+  background-color: #343A42;
+  color: white;
+}
 
 
 .btn-metodos:hover{

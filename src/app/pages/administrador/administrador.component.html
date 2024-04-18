@@ -4,25 +4,104 @@
 </div>
 
 
+<div class="nav-section">
+  <button (click)="VerOpcoesMetodos()" class="btn-nav-section">Metodos</button>
+  <button (click)="ShowIcedDrinks()" class="btn-nav-section">Bebidas Geladas</button>
+  <button (click)="ShowHotDrinks()" class="btn-nav-section">Bebidas Quentes</button>
+  <button class="btn-nav-section">Espressos</button>
+  <button class="btn-nav-section">Chás</button>
+  <button class="btn-nav-section">CoffeeSprints</button>
+</div>
+
 <div class="main-container">
-    <button (click)="VerOpcoesMetodos()">Metodos</button>
-    <button (click)="Limpar()">Limpar</button>
-   
+
+
+    <div *ngIf="showIcedDrinks" class="container-methods">
+      <button routerLink="/administrador/criarMetodo" class="create-metodo-btn">Criar Bebidas Geladas</button>
+      <div>
+          <div *ngFor="let item of icedDrinks" class="container-for">
+              <div class="container-white-methods">
+                  <span class="separamento-inicial"><i class="fa-solid fa-caret-right"></i></span>
+                  <div class="container-left">
+                      <div class="lateral-container-methods"></div>
+                      <h4 class="name-methods">{{item.name}}</h4>
+
+                      <div class="medium-container-metodos">
+                        <div *ngFor="let item of item.ingredientes" class="container-variacao">
+                          <h4 class="title-variedades">{{item.name}}</h4>
+                          <span class="separamento">|</span>
+                      </div>
+                      </div>
+                  </div>
+
+                  <div class="container-btn">
+                      <button class="test-bnt btn-update"
+                      routerLink="/administrador/editarMetodo/{{item.id}}"
+                      ><i class="fa-solid fa-pen"></i></button>
+                      <button class="test-bnt btn-create"
+                      routerLink="/administrador/criarCafe/{{item.id}}"
+                      ><i class="fa-solid fa-plus"></i></button>
+                      <button class="test-bnt btn-delete"
+                      ><i class="fa-solid fa-trash"></i></button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div *ngIf="showHotDrinks" class="container-methods">
+      <button routerLink="/administrador/criarMetodo" class="create-metodo-btn">Criar Bebidas Quentes</button>
+      <div>
+          <div *ngFor="let item of hotDrinks" class="container-for">
+              <div class="container-white-methods">
+                  <span class="separamento-inicial"><i class="fa-solid fa-caret-right"></i></span>
+
+                  <div class="container-left">
+                      <div class="lateral-container-methods"></div>
+                      <h4 class="name-methods">{{item.name}}</h4>
+
+                      <div class="medium-container-metodos">
+                           <div *ngFor="let item of item.ingredientes" class="container-variacao">
+                              <h4 class="title-variedades">{{item.name}}</h4>
+                              <span class="separamento">|</span>
+                           </div>
+                      </div>
+
+                  </div>
+
+                  <div class="container-btn">
+                      <button class="test-bnt btn-update"
+                      routerLink="/administrador/editarMetodo/{{item.id}}"
+                      ><i class="fa-solid fa-pen"></i></button>
+                      <button class="test-bnt btn-create"
+                      routerLink="/administrador/criarCafe/{{item.id}}"
+                      ><i class="fa-solid fa-plus"></i></button>
+                      <button class="test-bnt btn-delete"
+                      ><i class="fa-solid fa-trash"></i></button>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+    </div>
 
     <div *ngIf="opcoesMetodos" class="container-methods">
-        <button routerLink="/administrador/criarMetodo">Criar Metodos</button>
+        <button routerLink="/administrador/criarMetodo" class="create-metodo-btn">Criar Metodos</button>
         <div>
             <div *ngFor="let item of metodos" class="container-for">
                 <div class="container-white-methods">
+                    <span class="separamento-inicial"><i class="fa-solid fa-caret-right"></i></span>
 
                     <div class="container-left">
                         <div class="lateral-container-methods"></div>
                         <h4 class="name-methods">{{item.metodos}}</h4>
-                        <span class="separamento-inicial"><i class="fa-solid fa-caret-right"></i></span>
-                        
-                        <div *ngFor="let item of item.cafes" class="container-variacao">
+
+                        <div class="medium-container-metodos">
+                          <div *ngFor="let item of item.cafes" class="container-variacao">
                             <h4 class="title-variedades">{{item.variacao}}</h4>
                             <span class="separamento">|</span>
+                          </div>
                         </div>
                     </div>
 
@@ -33,14 +112,15 @@
                         <button class="test-bnt btn-create"
                         routerLink="/administrador/criarCafe/{{item.id}}"
                         ><i class="fa-solid fa-plus"></i></button>
-                        <button class="test-bnt btn-delete" 
+                        <button class="test-bnt btn-delete"
                         ><i class="fa-solid fa-trash"></i></button>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <!--

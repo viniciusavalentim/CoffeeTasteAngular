@@ -14,6 +14,10 @@ import { MetodosFormComponent } from './componentes/metodos-form/metodos-form.co
 import { CriarCafeComponent } from './pages/criar-cafe/criar-cafe.component';
 import { HotDrinksComponent } from './pages-home/hot-drinks/hot-drinks.component';
 import { IcedDrinksComponent } from './pages-home/iced-drinks/iced-drinks.component';
+import { CreateMetodosComponent } from './pages-adm/metodos/create-metodos/create-metodos.component';
+import { UpdateMetodosComponent } from './pages-adm/metodos/update-metodos/update-metodos.component';
+import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-drinks/update-iced-drinks.component';
+import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
 
 
 
@@ -27,7 +31,11 @@ import { IcedDrinksComponent } from './pages-home/iced-drinks/iced-drinks.compon
     MetodosFormComponent,
     CriarCafeComponent,
     HotDrinksComponent,
-    IcedDrinksComponent
+    IcedDrinksComponent,
+    CreateMetodosComponent,
+    UpdateMetodosComponent,
+    UpdateIcedDrinksComponent,
+    CreateIcedDrinksComponent,
   ],
   imports: [
     BrowserModule,
