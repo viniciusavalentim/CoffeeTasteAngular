@@ -1,46 +1,50 @@
-
 <div class="head">
     <h1 class="title-head">COFFEETASTE</h1>
     <button class="admin-button-head"  routerLink="/">Home</button>
 </div>
 
 
-<div>
+<div class="main-container">
     <button (click)="VerOpcoesMetodos()">Metodos</button>
     <button (click)="Limpar()">Limpar</button>
-    <div *ngIf="opcoesMetodos" >
-        <div class="table">
-            <table class="tteste">
-                <thead>
-                    <th class="nameTableMetodos">Nome</th>
-                    <th colspan="3">Variação</th>
-                    <th>
-                        <button routerLink="/administrador/criarMetodo">Criar Metodos</button>
-                    </th>
-                </thead>
-                <tbody>
-                        <tr *ngFor="let item of metodos" class="tr-metodos margin-bottom">
-                            <td>{{item.metodos}} |</td>
+   
 
-                            <td *ngFor="let item of item.cafes">
-                                {{item.variacao}}      
-                            </td>
+    <div *ngIf="opcoesMetodos" class="container-methods">
+        <button routerLink="/administrador/criarMetodo">Criar Metodos</button>
+        <div>
+            <div *ngFor="let item of metodos" class="container-for">
+                <div class="container-white-methods">
 
-                            <td class="aparecerQuandoDesejado" *ngIf="item.cafes.length == 1"></td>
-                            <td class="aparecerQuandoDesejado" *ngIf="item.cafes.length == 2"></td>
+                    <div class="container-left">
+                        <div class="lateral-container-methods"></div>
+                        <h4 class="name-methods">{{item.metodos}}</h4>
+                        <span class="separamento-inicial"><i class="fa-solid fa-caret-right"></i></span>
+                        
+                        <div *ngFor="let item of item.cafes" class="container-variacao">
+                            <h4 class="title-variedades">{{item.variacao}}</h4>
+                            <span class="separamento">|</span>
+                        </div>
+                    </div>
 
-                            <td class="btn">
-                                <button routerLink="/administrador/editarMetodo/{{item.id}}">Editar</button>
-                            </td>
-                            <td class="btn">
-                                <button routerLink="/administrador/criarCafe/{{item.id}}">Criar Cafes</button>  
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
+                    <div class="container-btn">
+                        <button class="test-bnt btn-update"
+                        routerLink="/administrador/editarMetodo/{{item.id}}"
+                        ><i class="fa-solid fa-pen"></i></button>
+                        <button class="test-bnt btn-create"
+                        routerLink="/administrador/criarCafe/{{item.id}}"
+                        ><i class="fa-solid fa-plus"></i></button>
+                        <button class="test-bnt btn-delete" 
+                        ><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-        
-
     </div>
 </div>
 
+<!--
+    <div *ngFor="let item of item.cafes">
+
+</div>
+-->

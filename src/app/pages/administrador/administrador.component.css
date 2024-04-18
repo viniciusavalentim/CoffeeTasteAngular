@@ -1,3 +1,10 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .head {
     display: flex;
     justify-content: space-between;
@@ -46,35 +53,6 @@
 
 
 
-
-
-
-.table{
-    display: flex;
-    justify-content: center;
-}
-
-.tr-metodos{
-    border: 1px solid black;
-    margin-bottom: 10px; /* Ajuste conforme necessário */
-    padding: 102px;
-
-}
-.margin-bottom {
-    margin-bottom: 10px; /* Ajuste conforme necessário */
-}
-
-
-table{
-    border-collapse: collapse;
-    width: 65%;
-}
-
-
-.tteste td, .tteste th{
-    padding: 12px;
-} 
-
 .btn{
     text-align: right;
     background-color: #ddd;
@@ -83,3 +61,111 @@ table{
     text-align: left;
 }
 
+.container-methods{
+    margin-bottom: 100px;
+}
+
+.container-for{
+    width: 1300px;
+}
+
+.container-white-methods{
+    margin-top: 30px;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+
+}
+
+.lateral-container-methods{
+    width: 17px;
+    height: 60px;
+    background-color: #343A42;
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+    color: #D5DEEF;
+}
+
+.name-methods{
+    margin-left: 30px;
+}
+
+.separamento-inicial{
+    font-size: 38px;
+    margin-left: 78px;
+}
+
+.separamento{
+    font-size: 38px;
+    margin-left: 18px;
+}
+
+.title-variedades{
+    margin-left: 18px;
+}
+
+.container-variacao{
+    display: flex;
+    align-items: center;
+}
+
+
+
+.test-bnt{
+    padding: 12px;
+    width: 49px;
+    height: 49px;
+    margin: 3px;
+    border: none;
+    border-radius: 10px;
+
+}
+.btn-update{
+    background-color: #395886;     
+    color: white;
+    transition: transform 0.3s ease;
+}
+.btn-create{
+    background-color: #117001;     
+    color: white;
+    transition: transform 0.3s ease;
+}
+.btn-delete{
+    background-color: #B40B0B;     
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.container-btn{
+    padding: 10px;
+}
+
+.container-left{
+    display: flex;
+    align-items: center;
+}
+
+.btn-update:hover{
+    background-color: #304a72;
+    transform: scale(1.2);
+    position: relative;
+    z-index: 1;
+}
+
+.btn-create:hover{
+    transform: scale(1.2);
+    position: relative;
+    z-index: 1;
+    background-color: #105e03;
+}
+
+.btn-delete:hover{
+    transform: scale(1.2);
+    position: relative;
+    z-index: 1;
+    background-color: #750606;
+}
