@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Methods } from '../models/Methods';
-import { Response } from '../models/Response';
-import { Teas } from '../models/Teas';
-import { Hotdrinks } from '../models/HotDrinks';
-import { CoffeeSprints } from '../models/CoffeeSprints';
-import { IngredientsHotDrinks } from '../models/IngredientsHotDrinks';
-import { IngredientsTeas } from '../models/IngredientsTeas';
+import { Methods } from '../../models/Methods';
+import { Response } from '../../models/Response';
+import { Teas } from '../../models/Teas';
+import { Hotdrinks } from '../../models/HotDrinks';
+import { CoffeeSprints } from '../../models/CoffeeSprints';
+import { IngredientsHotDrinks } from '../../models/IngredientsHotDrinks';
+import { IngredientsTeas } from '../../models/IngredientsTeas';
 
 @Injectable({
   providedIn: 'root'
@@ -39,25 +39,39 @@ export class MethodsService {
 
 
 
-  GetTeas() : Observable<Response<Teas[]>>{
-    return this.http.get<Response<Teas[]>>(this.apiUrlTeas);
-  };
 
-  GetHotDrinks() : Observable<Response<Hotdrinks[]>>{
-    return this.http.get<Response<Hotdrinks[]>>(this.apiUrlHotDrinks);
-  };
 
+
+
+  //COFFEE-SPRINTS
   GetCoffeeSprint() : Observable<Response<CoffeeSprints[]>>{
     return this.http.get<Response<CoffeeSprints[]>>(this.apiUrlCoffeeSprints);
   };
 
+
+
+  //HOT-DRINKS
+  GetHotDrinks() : Observable<Response<Hotdrinks[]>>{
+    return this.http.get<Response<Hotdrinks[]>>(this.apiUrlHotDrinks);
+  };
   GetIngredientsByHotDrinks(id: number): Observable<Response<IngredientsHotDrinks[]>> {
     return this.http.get<Response<IngredientsHotDrinks[]>>(`${this.apiUrlHotDrinks}/IngredientBy/${id}`);
+  };
+
+
+
+  //TEAS
+  GetTeas() : Observable<Response<Teas[]>>{
+    return this.http.get<Response<Teas[]>>(this.apiUrlTeas);
   };
 
   GetIngredientsByTeas(id: number): Observable<Response<IngredientsTeas[]>> {
     return this.http.get<Response<IngredientsTeas[]>>(`${this.apiUrlTeas}/IngredientBy/${id}`);
   };
+
+
+
+
 
 
 };

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hotdrinks } from 'src/app/models/HotDrinks';
 import { IngredientsHotDrinks } from 'src/app/models/IngredientsHotDrinks';
-import { MethodsService } from 'src/app/services/methods.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 
 @Component({
   selector: 'app-hot-drinks',

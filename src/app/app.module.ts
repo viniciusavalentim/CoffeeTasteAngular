@@ -5,19 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdministradorComponent } from './pages/administrador/administrador.component';
-import { EditarComponent } from './pages/editarCafes/editar.component';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { EditarComponent } from './pages-adm/metodos/editarCafes/editar.component';
+import { CadastroComponent } from './pages-adm/metodos/cadastro/cadastro.component';
 import { MetodosFormComponent } from './componentes/metodos-form/metodos-form.component';
-import { CriarCafeComponent } from './pages/criar-cafe/criar-cafe.component';
+import { CriarCafeComponent } from './pages-adm/metodos/criar-cafe/criar-cafe.component';
 import { HotDrinksComponent } from './pages-home/hot-drinks/hot-drinks.component';
 import { IcedDrinksComponent } from './pages-home/iced-drinks/iced-drinks.component';
-import { CreateMetodosComponent } from './pages-adm/metodos/create-metodos/create-metodos.component';
-import { UpdateMetodosComponent } from './pages-adm/metodos/update-metodos/update-metodos.component';
 import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-drinks/update-iced-drinks.component';
 import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
+import { CreateComponent } from './componentes/create/create.component';
+import { UpdateDrinksComponent } from './componentes/update-drinks/update-drinks.component';
+import { CreateIngredientsComponent } from './componentes/create-ingredients/create-ingredients.component';
+import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
+import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink/update-hot-drink.component';
 
 
 
@@ -32,10 +35,13 @@ import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-d
     CriarCafeComponent,
     HotDrinksComponent,
     IcedDrinksComponent,
-    CreateMetodosComponent,
-    UpdateMetodosComponent,
     UpdateIcedDrinksComponent,
     CreateIcedDrinksComponent,
+    CreateComponent,
+    UpdateDrinksComponent,
+    CreateIngredientsComponent,
+    CreateHotDrinkComponent,
+    UpdateHotDrinkComponent,
   ],
   imports: [
     BrowserModule,

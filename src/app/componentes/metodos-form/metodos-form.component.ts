@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormArray, Valid
 import { Route, Router } from '@angular/router';
 import { Coffees } from 'src/app/models/Coffees';
 import { Methods } from 'src/app/models/Methods';
-import { MethodsService } from 'src/app/services/methods.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 
 @Component({
   selector: 'app-metodos-form',
@@ -11,8 +11,8 @@ import { MethodsService } from 'src/app/services/methods.service';
   styleUrls: ['./metodos-form.component.css']
 })
 export class MetodosFormComponent  implements OnInit{
-  
-  
+
+
   @Output() onSubmit = new EventEmitter<Methods>();
 
   metodoForm!: FormGroup;
@@ -45,7 +45,7 @@ export class MetodosFormComponent  implements OnInit{
   removeCafe(index: number) {
     this.cafes.removeAt(index);
   }
-  
+
   submit(): void {
     console.log("Opa, chegou mais antes ainda")
     if(this.metodoForm.valid){

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Methods } from 'src/app/models/Methods';
-import { MethodsService } from 'src/app/services/methods.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 
 @Component({
   selector: 'app-cadastro',

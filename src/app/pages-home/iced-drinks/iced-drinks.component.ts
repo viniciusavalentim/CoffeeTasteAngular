@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { IceDrinksService } from './../../services/Ice-drinks.service';
+import { IceDrinksService } from '../../services/IcedDrinksService/Ice-drinks.service';
 import { Component, OnInit } from '@angular/core';
 import { IceDrinks } from 'src/app/models/IceDrinks';
 import { IngredientsIceDrinks as IngredientsIcedDrinks } from 'src/app/models/IngredientsIcedDrinks';

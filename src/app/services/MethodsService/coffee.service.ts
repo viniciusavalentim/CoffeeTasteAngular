@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Observable } from 'rxjs';
-import { Response } from '../models/Response';
-import { Coffees } from '../models/Coffees';
-import { Revenues } from '../models/Revenues';
+import { Response } from '../../models/Response';
+import { Coffees } from '../../models/Coffees';
+import { Revenues } from '../../models/Revenues';
 
 
 @Injectable({

@@ -1,0 +1,60 @@
+
+.create-container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; /* Margens automáticas centralizam o elemento */
+  width: 80%; /* Defina a largura desejada */
+  height: 80%; /* Defina a altura desejada */
+  background-color: rgb(92, 95, 95); /* Apenas para fins de demonstração */
+  opacity: 0.9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.head{
+  justify-content: center;
+  margin-top: 2rem;
+  .title-head{
+    font-size: 2rem;
+    color: white;
+  }
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.main-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.label{
+  align-self: start;
+}
+
+
+.first-input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.text-area{
+  width: 100%;
+}
+
+.ingredient-section h3{
+  align-self: start;
+}

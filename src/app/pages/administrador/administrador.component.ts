@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MethodsService } from 'src/app/services/methods.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Methods } from 'src/app/models/Methods';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffees } from 'src/app/models/Coffees';
 import { Revenues } from 'src/app/models/Revenues';
-import { CoffeeService } from 'src/app/services/coffee.service';
-import { IceDrinksService } from 'src/app/services/Ice-drinks.service';
+import { CoffeeService } from 'src/app/services/MethodsService/coffee.service';
+import { IceDrinksService } from 'src/app/services/IcedDrinksService/Ice-drinks.service';
 import { IceDrinks } from 'src/app/models/IceDrinks';
 import { Hotdrinks } from 'src/app/models/HotDrinks';
 

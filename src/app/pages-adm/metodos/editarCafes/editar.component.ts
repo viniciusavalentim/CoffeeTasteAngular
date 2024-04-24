@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, UntypedFormArray, Validators } from 
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffees } from 'src/app/models/Coffees';
 import { Methods } from 'src/app/models/Methods';
-import { MethodsService } from 'src/app/services/methods.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 
 @Component({
   selector: 'app-editar',
@@ -20,23 +20,23 @@ export class EditarComponent implements OnInit{
 
   constructor(private formBuilder: FormBuilder, private metodosService: MethodsService, private route: ActivatedRoute, private router: Router) {
   }
-  
+
   ngOnInit() {
 
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.metodosService.GetMethodsById(id).subscribe((data)=>{
-   
-    this.metodo = data.dados; 
+
+    this.metodo = data.dados;
     console.log(this.metodo)
-      
+
     this.editForm = this.formBuilder.group({
       id: [id],
       metodos: [this.metodo.metodos, Validators.required],
       cafes: this.formBuilder.array(this.ObterCafes(this.metodo))
-    });   
-      
-  
+    });
+
+
 
     })
     console.log(id)

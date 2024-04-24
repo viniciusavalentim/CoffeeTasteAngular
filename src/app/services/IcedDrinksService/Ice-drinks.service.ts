@@ -1,10 +1,10 @@
+import { IceDrinks } from 'src/app/models/IceDrinks';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { IceDrinks } from '../models/IceDrinks';
 import { Observable } from 'rxjs';
-import { Response } from '../models/Response';
-import { IngredientsIceDrinks } from '../models/IngredientsIcedDrinks';
+import { Response } from '../../models/Response';
+import { IngredientsIceDrinks } from '../../models/IngredientsIcedDrinks';
 
 
 @Injectable({
@@ -23,6 +23,11 @@ export class IceDrinksService {
   GetIngredientsByIceDrinks(id: number): Observable<Response<IngredientsIceDrinks[]>> {
     return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/IngredientBy/${id}`);
   };
+
+  CreateIcedDrinks(iceDrinks: IceDrinks): Observable<Response<IceDrinks>>{
+    return this.http.post<Response<IceDrinks>>(`${this.apiUrl}`, iceDrinks);
+  };
+
 
 }
 

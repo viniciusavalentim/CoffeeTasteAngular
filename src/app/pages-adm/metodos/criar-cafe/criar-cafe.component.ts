@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, UntypedFormArray, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Coffees } from 'src/app/models/Coffees';
-import { CoffeeService } from 'src/app/services/coffee.service';
-import { MethodsService } from 'src/app/services/methods.service';
+import { CoffeeService } from 'src/app/services/MethodsService/coffee.service';
+import { MethodsService } from 'src/app/services/MethodsService/methods.service';
 
 @Component({
   selector: 'app-criar-cafe',

@@ -1,14 +1,14 @@
-import { Hotdrinks } from './../models/HotDrinks';
+import { Hotdrinks } from '../../models/HotDrinks';
 import { Component, OnInit, numberAttribute } from '@angular/core';
-import { Methods } from '../models/Methods';
-import { MethodsService } from '../services/methods.service';
-import { Coffees } from '../models/Coffees';
+import { Methods } from '../../models/Methods';
+import { MethodsService } from '../../services/MethodsService/methods.service';
+import { Coffees } from '../../models/Coffees';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Revenues } from '../models/Revenues';
-import { IceDrinks } from '../models/IceDrinks';
-import { IceDrinksService } from '../services/Ice-drinks.service';
-import { CoffeeService } from '../services/coffee.service';
-import { IngredientsIceDrinks } from '../models/IngredientsIcedDrinks';
+import { Revenues } from '../../models/Revenues';
+import { IceDrinks } from '../../models/IceDrinks';
+import { IceDrinksService } from '../../services/IcedDrinksService/Ice-drinks.service';
+import { CoffeeService } from '../../services/MethodsService/coffee.service';
+import { IngredientsIceDrinks } from '../../models/IngredientsIcedDrinks';
 
 
 @Component({
