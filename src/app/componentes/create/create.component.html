@@ -2,26 +2,44 @@
 
 
 <div class="main-container">
-  <app-administrador class="app-adm"></app-administrador>
+
+
   <div class="create-container">
+    <!--app-->
 
     <div class="head">
       <h1 class="title-head">Criar Bebidas Geladas</h1>
     </div>
 
     <div class="main-section">
-      <form action="">
-        <label for="" class="label">Nome: </label>
-        <input type="text" class="first-input">
-        <label for="" class="label">Observações: </label>
-        <textarea name="" id="" cols="55" rows="10" style="resize: none;" class="text-area"></textarea>
-        <div class="ingredients-section">
-          <h3 class="label">Ingredients</h3>
-        </div>
-        <button type="submit">Enviar</button>
+
+      <form [formGroup]="drinksForm" (ngSubmit)="submit()" #formdir="ngForm">
+
+          <label for="" class="label">Nome: </label>
+          <input type="text" class="first-input">
+          <label for="" class="label">Observações: </label>
+          <textarea name="" id="" cols="55" rows="10" style="resize: none;" class="text-area"></textarea>
+
+          <div class="head-ingredients">
+            <h3 class="title-ingredients ">Ingredients</h3>
+            <button><i class="fa-solid fa-plus"></i></button>
+          </div>
+
+          <div class="ingredients-section">
+            <div class="ingredient-group">
+              <input type="text">
+              <button class="test-bnt btn-delete"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>
+
+          <button type="submit">Enviar</button>
       </form>
+
     </div>
 
     <button routerLink="/administrador">Back</button>
+
   </div>
+
+
 </div>

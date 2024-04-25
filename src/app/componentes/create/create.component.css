@@ -7,11 +7,15 @@
   right: 0;
   margin: auto; /* Margens automáticas centralizam o elemento */
   width: 80%; /* Defina a largura desejada */
-  height: 80%; /* Defina a altura desejada */
+  max-height: 80vh; /* Define a altura máxima como 80% da altura do viewport */
+  height: fit-content; /* Ajusta a altura para o conteúdo */
   background-color: rgb(92, 95, 95); /* Apenas para fins de demonstração */
   opacity: 0.9;
   border-radius: 10px;
   text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
 }
 
 
@@ -55,6 +59,48 @@
   width: 100%;
 }
 
-.ingredient-section h3{
-  align-self: start;
+.head-ingredients {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.title-ingredients {
+  margin-right: auto;
+}
+
+.ingredients-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-group {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.ingredient-group input {
+  width: calc(100% - 40px);
+  margin-right: 5px;
+}
+
+.ingredient-group button {
+  flex-shrink: 0;
+  width: 35px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .ingredients-section {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+  .ingredient-group {
+    align-items: center;
+  }
+
 }
