@@ -32,7 +32,9 @@ export class IcedDrinksComponent implements OnInit{
 
   GetObservacoes(observacoes: string)
   {
+    console.log(observacoes)
     this.GetComments = observacoes;
+    console.log(this.GetComments)
   };
 
   GetIngredientsByIcedDrink(icedDrinks: IceDrinks){

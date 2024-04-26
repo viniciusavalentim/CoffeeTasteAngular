@@ -17,15 +17,18 @@ export class IceDrinksService {
   constructor(private http: HttpClient) { }
 
   GetIceDrinks():Observable<Response<IceDrinks[]>>{
+    
     return this.http.get<Response<IceDrinks[]>>(`${this.apiUrl}`)
   };
 
   GetIngredientsByIceDrinks(id: number): Observable<Response<IngredientsIceDrinks[]>> {
     return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/IngredientBy/${id}`);
+    
   };
 
-  CreateIcedDrinks(iceDrinks: IceDrinks): Observable<Response<IceDrinks>>{
-    return this.http.post<Response<IceDrinks>>(`${this.apiUrl}`, iceDrinks);
+  CreateIcedDrinks(iceDrinks: IceDrinks): Observable<Response<IceDrinks[]>>{
+    console.log(`${this.apiUrl}`, iceDrinks)
+    return this.http.post<Response<IceDrinks[]>>(`${this.apiUrl}`, iceDrinks);
   };
 
 

@@ -2,35 +2,40 @@
 
 
 <div class="main-container">
-
-
   <div class="create-container">
     <!--app-->
-
     <div class="head">
       <h1 class="title-head">Criar Bebidas Geladas</h1>
     </div>
 
     <div class="main-section">
 
-      <form [formGroup]="drinksForm" (ngSubmit)="submit()" #formdir="ngForm">
+      <form [formGroup]="drinksForm" (ngSubmit)="onSubmit()" #formdir="ngForm">
 
-          <label for="" class="label">Nome: </label>
-          <input type="text" class="first-input">
-          <label for="" class="label">Observações: </label>
-          <textarea name="" id="" cols="55" rows="10" style="resize: none;" class="text-area"></textarea>
+          <div class="head-drink" id="formGroup">
+            <label for="" class="label">Nome: </label>
+            <input type="text" class="first-input" id="name" formControlName="name">
+            <label for="" class="label">Observações: </label>
+            <textarea name="" id="" cols="55" rows="10" style="resize: none;" class="text-area" id="observacoes" formControlName="observacoes"></textarea>
+          </div>
 
           <div class="head-ingredients">
             <h3 class="title-ingredients ">Ingredients</h3>
-            <button><i class="fa-solid fa-plus"></i></button>
+            <button type="button" class="button-add-ingredient" (click)="AddDrink()"><i class="fa-solid fa-plus"></i></button>
           </div>
 
-          <div class="ingredients-section">
-            <div class="ingredient-group">
-              <input type="text">
-              <button class="test-bnt btn-delete"><i class="fa-solid fa-trash"></i></button>
+          <div formArrayName="ingredientes">
+            <div class="ingredients-section" *ngFor="let item of ingredients.controls; let i = index" [formGroupName]="i">
+              <div class="ingredient-group" id="formGroup">
+                <input type="text" class="name-ingredient" id="name" formControlName="name">
+                <input type="number" class="name-ingredient" id="name" formControlName="quantity">
+                <input type="text" class="name-ingredient" id="name" formControlName="unit">
+                <button class="test-bnt btn-delete" type="button"><i class="fa-solid fa-trash"></i></button>
+              </div>
             </div>
           </div>
+
+
 
           <button type="submit">Enviar</button>
       </form>

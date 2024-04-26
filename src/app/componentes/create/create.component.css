@@ -5,16 +5,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto; /* Margens automáticas centralizam o elemento */
-  width: 80%; /* Defina a largura desejada */
-  max-height: 80vh; /* Define a altura máxima como 80% da altura do viewport */
-  height: fit-content; /* Ajusta a altura para o conteúdo */
-  background-color: rgb(92, 95, 95); /* Apenas para fins de demonstração */
+  margin: auto;
+  width: 80%; 
+  max-height: 90vh; 
+  height: 80%; 
+  background-color: dimgrey;
   opacity: 0.9;
   border-radius: 10px;
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
+  border: 1px solid #ccc; /* Adiciona uma borda para indicar a área rolável */
+  border-radius: 5px; /* Adiciona bordas arredondadas */
+  padding: 10px; /* Adiciona espaço interno para conteúdo */
 
 }
 
@@ -36,6 +40,7 @@
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  
 }
 
 .main-section form {
@@ -43,19 +48,30 @@
   flex-direction: column;
   align-items: center;
   width: 80%;
+  
 }
 
-.label{
+.head-drink{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.head-drink > .label{
   align-self: start;
 }
 
+.label{
+  color: white;
+}
 
-.first-input {
+.head-drink > .first-input {
   width: 100%;
   margin: 10px 0;
 }
 
-.text-area{
+.head-drink > .text-area{
   width: 100%;
 }
 
@@ -73,6 +89,7 @@
 .ingredients-section {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .ingredient-group {
@@ -93,14 +110,22 @@
 }
 
 
+.button-add-ingredient{
+  color: white;
+  background-color: green;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+
 @media screen and (max-width: 768px) {
   .ingredients-section {
     display: flex;
     align-items: center;
-    margin-left: 30px;
   }
   .ingredient-group {
     align-items: center;
   }
-
 }
