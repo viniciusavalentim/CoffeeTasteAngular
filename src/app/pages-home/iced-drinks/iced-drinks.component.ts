@@ -20,7 +20,7 @@ export class IcedDrinksComponent implements OnInit{
 
   constructor( public icedDrinksService: IceDrinksService, private route: ActivatedRoute, private router: Router) {}
   ngOnInit(): void {
-    this.icedDrinksService.GetIceDrinks().subscribe(data =>{
+    this.icedDrinksService.GetIcedDrinks().subscribe(data =>{
       const dados = data.dados;
       dados.map((item) =>{
         this.iceDrinkId = item.id

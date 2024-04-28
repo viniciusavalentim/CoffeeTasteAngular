@@ -16,19 +16,30 @@ export class IceDrinksService {
 
   constructor(private http: HttpClient) { }
 
-  GetIceDrinks():Observable<Response<IceDrinks[]>>{
-    
-    return this.http.get<Response<IceDrinks[]>>(`${this.apiUrl}`)
+  GetIcedDrinks():Observable<Response<IceDrinks[]>>{
+    return this.http.get<Response<IceDrinks[]>>(`${this.apiUrl}`);
   };
+
+  GetIcedDrinksById(id: number):Observable<Response<IceDrinks>>{
+    return this.http.get<Response<IceDrinks>>(`${this.apiUrl}/ByIcedId/${id}`);
+  };
+
 
   GetIngredientsByIceDrinks(id: number): Observable<Response<IngredientsIceDrinks[]>> {
     return this.http.get<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/IngredientBy/${id}`);
-    
   };
 
   CreateIcedDrinks(iceDrinks: IceDrinks): Observable<Response<IceDrinks[]>>{
-    console.log(`${this.apiUrl}`, iceDrinks)
     return this.http.post<Response<IceDrinks[]>>(`${this.apiUrl}`, iceDrinks);
+  };
+
+  UpdateIcedDrink(iceDrinks: IceDrinks): Observable<Response<IceDrinks[]>>{
+    return this.http.post<Response<IceDrinks[]>>(`${this.apiUrl}`, iceDrinks);
+  };
+
+  DeleteIcedDrink(id: number): Observable<Response<IngredientsIceDrinks[]>> {
+    console.log(`${this.apiUrl}/${id}`)
+    return this.http.delete<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/${id}`);
   };
 
 

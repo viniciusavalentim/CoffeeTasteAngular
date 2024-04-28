@@ -54,9 +54,7 @@ export class AdministradorComponent implements OnInit{
           this.cafes = item.cafes;
           this.idMetodo = item.id;
         });
-
         this.metodos = dados;
-
       });
 
       this.coffeeService.GetCoffees().subscribe(data =>{
@@ -67,7 +65,7 @@ export class AdministradorComponent implements OnInit{
         this.cafes = dados;
       });
 
-      this.icedDrinksService.GetIceDrinks().subscribe(data =>{
+      this.icedDrinksService.GetIcedDrinks().subscribe(data =>{
         const dados = data.dados;
         this.icedDrinks = dados;
       });
@@ -77,7 +75,7 @@ export class AdministradorComponent implements OnInit{
         this.hotDrinks = dados;
       });
 
-    }
+    };
 
     GetId(metodo: Methods)
     {
@@ -111,12 +109,18 @@ export class AdministradorComponent implements OnInit{
         console.log(dados);
 
       })
-
-
     }
 
     GetByDivision(){
       return this.metodos
+    }
+
+    DeleteIcedDrink(icedDrinks: IceDrinks)
+    {
+      const id = Number(icedDrinks.id)
+      this.icedDrinksService.DeleteIcedDrink(id).subscribe(data=>{
+        this.router.navigate(['/administrador']);
+      });
     }
 
   VerOpcoesMetodos()

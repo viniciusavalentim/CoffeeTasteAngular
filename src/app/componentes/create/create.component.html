@@ -5,7 +5,7 @@
   <div class="create-container">
     <!--app-->
     <div class="head">
-      <h1 class="title-head">Criar Bebidas Geladas</h1>
+      <h1 class="title-head">{{btnTitle}}</h1>
     </div>
 
     <div class="main-section">
@@ -24,20 +24,38 @@
             <button type="button" class="button-add-ingredient" (click)="AddDrink()"><i class="fa-solid fa-plus"></i></button>
           </div>
 
-          <div formArrayName="ingredientes">
-            <div class="ingredients-section" *ngFor="let item of ingredients.controls; let i = index" [formGroupName]="i">
-              <div class="ingredient-group" id="formGroup">
-                <input type="text" class="name-ingredient" id="name" formControlName="name">
-                <input type="number" class="name-ingredient" id="name" formControlName="quantity">
-                <input type="text" class="name-ingredient" id="name" formControlName="unit">
-                <button class="test-bnt btn-delete" type="button"><i class="fa-solid fa-trash"></i></button>
+          <!--
+                   <div *ngIf="update">
+            <div formArrayName="ingredientes">
+              <div class="ingredients-section" *ngFor="let item of update.ingredientes">
+                <div class="ingredient-group" id="formGroup">
+                  <input type="text" class="name-ingredient" id="name" formControlName="name">
+                  <input type="number" class="name-ingredient" id="name" formControlName="quantity">
+                  <input type="text" class="name-ingredient" id="name" formControlName="unit">
+                  <button class="test-bnt btn-delete" type="button"><i class="fa-solid fa-trash"></i></button>
+                </div>
               </div>
             </div>
           </div>
+          -->
 
 
 
-          <button type="submit">Enviar</button>
+            <div formArrayName="ingredientes">
+              <div class="ingredients-section" *ngFor="let item of ingredients.controls; let i = index" [formGroupName]="i">
+                <div class="ingredient-group" id="formGroup">
+                  <input type="text" class="name-ingredient" id="name" formControlName="name">
+                  <input type="number" class="name-ingredient" id="name" formControlName="quantity">
+                  <input type="text" class="name-ingredient" id="name" formControlName="unit">
+                  <button class="test-bnt btn-delete" type="button"><i class="fa-solid fa-trash"></i></button>
+                </div>
+              </div>
+            </div>
+      
+
+
+
+          <button type="submit">{{btnAction}}</button>
       </form>
 
     </div>

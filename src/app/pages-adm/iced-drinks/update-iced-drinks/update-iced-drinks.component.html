@@ -1,1 +1,3 @@
-<p>update-iced-drinks works!</p>
+<div *ngIf="icedDrink">
+  <app-create [btnAction]="btnAction" [btnTitle]="btnTitle" [update]="icedDrink"></app-create>
+</div>

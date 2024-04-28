@@ -18,7 +18,6 @@ import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-d
 import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
 import { CreateComponent } from './componentes/create/create.component';
 import { UpdateDrinksComponent } from './componentes/update-drinks/update-drinks.component';
-import { CreateIngredientsComponent } from './componentes/create-ingredients/create-ingredients.component';
 import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
 import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink/update-hot-drink.component';
 
@@ -39,7 +38,6 @@ import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink
     CreateIcedDrinksComponent,
     CreateComponent,
     UpdateDrinksComponent,
-    CreateIngredientsComponent,
     CreateHotDrinkComponent,
     UpdateHotDrinkComponent,
   ],

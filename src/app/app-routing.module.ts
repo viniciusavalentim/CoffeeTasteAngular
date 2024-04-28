@@ -8,6 +8,8 @@ import { CriarCafeComponent } from './pages-adm/metodos/criar-cafe/criar-cafe.co
 import { CreateComponent } from './componentes/create/create.component';
 import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
 import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
+import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-drinks/update-iced-drinks.component';
+import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink/update-hot-drink.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +19,10 @@ const routes: Routes = [
   {path: 'administrador/criarCafe/:id', component: CriarCafeComponent},
   {path: 'administrador/create-iced-drink', component: CreateIcedDrinksComponent},
   {path: 'administrador/create-hot-drink', component: CreateHotDrinkComponent},
+  {path: 'administrador/update-iced-drink/:id', component: UpdateIcedDrinksComponent},
+  {path: 'administrador/update-hot-drink/:id', component: UpdateHotDrinkComponent},
+
+
 
 
 

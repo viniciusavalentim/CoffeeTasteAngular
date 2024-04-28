@@ -56,7 +56,7 @@ export class MetodosFormComponent  implements OnInit{
       this.metodosService.CreateMethods(metodoData).subscribe((data) =>{
         console.log("chegou?")
         console.log(data);
-        this.router.navigate(['/administrador'])
+        this.router.navigate(['/administrador']);
 
       })
     }

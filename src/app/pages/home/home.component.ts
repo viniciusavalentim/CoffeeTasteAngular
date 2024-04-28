@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
 
 
   GetBebidasGeladas?: IceDrinks[];
-  icedDrinksVisible: boolean = false;
+  icedDrinksVisible?: boolean = false;
 
   revenuesIceDrinksIsVisible: boolean = false;
   IdBebidasGeladas?: number;
