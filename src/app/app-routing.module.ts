@@ -5,7 +5,7 @@ import { AdministradorComponent } from './pages/administrador/administrador.comp
 import { EditarComponent } from './pages-adm/metodos/editarCafes/editar.component';
 import { CadastroComponent } from './pages-adm/metodos/cadastro/cadastro.component';
 import { CriarCafeComponent } from './pages-adm/metodos/criar-cafe/criar-cafe.component';
-import { CreateComponent } from './componentes/create/create.component';
+import { CreateComponent } from './componentes/drinks-form/create.component';
 import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
 import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
 import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-drinks/update-iced-drinks.component';

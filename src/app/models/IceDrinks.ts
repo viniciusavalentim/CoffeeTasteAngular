@@ -7,3 +7,4 @@ export interface IceDrinks{
     observacoes: string;
     ingredientes: IngredientsIceDrinks[];
 }
+

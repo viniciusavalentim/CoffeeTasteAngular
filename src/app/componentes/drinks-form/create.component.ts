@@ -25,8 +25,8 @@ export class CreateComponent implements OnInit {
   drinksForm!: FormGroup;
 
 
-  constructor(private fb: FormBuilder, 
-              private router: Router, 
+  constructor(private fb: FormBuilder,
+              private router: Router,
               private icedDrinksService: IceDrinksService,
               private hotDrinksService: HotDrinksService
               ) {}
@@ -45,8 +45,7 @@ export class CreateComponent implements OnInit {
       });
     }
   };
-
-
+  
   get ingredients(): FormArray{
     return this.drinksForm.get('ingredientes') as FormArray;
   };
@@ -57,11 +56,9 @@ export class CreateComponent implements OnInit {
       quantity: [ingrediente ? ingrediente.quantity : '', Validators.required],
       unit: [ingrediente ? ingrediente.unit : '', Validators.required],
     });
-  
+
     this.ingredients.push(group);
   };
-
-
   removeIngredient(index: number) {
     const removedItem = this.ingredients.at(index);
 
@@ -72,8 +69,8 @@ export class CreateComponent implements OnInit {
 
         // Choose layout color type
         newConfirmBox.setConfig({
-        layoutType: DialogLayoutDisplay.DANGER, 
-        animationIn: AppearanceAnimation.SLIDE_IN_UP, 
+        layoutType: DialogLayoutDisplay.DANGER,
+        animationIn: AppearanceAnimation.SLIDE_IN_UP,
         animationOut: DisappearanceAnimation.BOUNCE_OUT,
         buttonPosition: 'center',
         });
@@ -85,7 +82,6 @@ export class CreateComponent implements OnInit {
           if(resp.clickedButtonID == 'sim'){
             if (removedItem && removedItem.get('id')) {
               const itemId = Number(removedItem.get('id')!.value);
-              console.log(itemId);
               if(this.Category == "icedDrink"){
                 this.icedDrinksService.DeleteIngredientIcedDrink(itemId).subscribe(data=>{
                   console.log(data);
@@ -94,8 +90,11 @@ export class CreateComponent implements OnInit {
                 this.hotDrinksService.DeleteIngredientHotDrink(itemId).subscribe(data=>{
                   console.log(data);
                 });
-              }
-              else if(this.Category == "teas"){
+              } else if(this.Category == "teas"){
+                this.hotDrinksService.DeleteIngredientHotDrink(itemId).subscribe(data=>{
+                  console.log(data);
+                });
+              } else if(this.Category == "coffeeSprints"){
                 this.hotDrinksService.DeleteIngredientHotDrink(itemId).subscribe(data=>{
                   console.log(data);
                 });

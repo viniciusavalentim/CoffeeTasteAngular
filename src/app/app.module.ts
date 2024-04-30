@@ -16,11 +16,20 @@ import { HotDrinksComponent } from './pages-home/hot-drinks/hot-drinks.component
 import { IcedDrinksComponent } from './pages-home/iced-drinks/iced-drinks.component';
 import { UpdateIcedDrinksComponent } from './pages-adm/iced-drinks/update-iced-drinks/update-iced-drinks.component';
 import { CreateIcedDrinksComponent } from './pages-adm/iced-drinks/create-iced-drinks/create-iced-drinks.component';
-import { CreateComponent } from './componentes/create/create.component';
-import { UpdateDrinksComponent } from './componentes/update-drinks/update-drinks.component';
+import { CreateComponent } from './componentes/drinks-form/create.component';
 import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
 import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink/update-hot-drink.component';
 import { ConfirmBoxConfigModule, DialogConfigModule, NgxAwesomePopupModule, ToastNotificationConfigModule } from '@costlydeveloper/ngx-awesome-popup';
+import { CreateCoffeeSprintsComponent } from './pages-adm/coffee-sprints/create-coffee-sprints/create-coffee-sprints.component';
+import { UpdateCoffeeSprintsComponent } from './pages-adm/coffee-sprints/update-coffee-sprints/update-coffee-sprints.component';
+import { ShowCoffeeSprintsComponent } from './pages-adm/coffee-sprints/show-coffee-sprints/show-coffee-sprints.component';
+import { ShowIcedDrinksComponent } from './pages-adm/iced-drinks/show-iced-drinks/show-iced-drinks.component';
+import { ShowHotDrinksComponent } from './pages-adm/hot-drinks/show-hot-drinks/show-hot-drinks.component';
+import { ShowTeasComponent } from './pages-adm/teas/show-teas/show-teas.component';
+import { CreateTeasComponent } from './pages-adm/teas/create-teas/create-teas.component';
+import { UpdateTeasComponent } from './pages-adm/teas/update-teas/update-teas.component';
+import { TeasComponent } from './pages-home/teas/teas.component';
+import { CoffeeSprintsComponent } from './pages-home/coffee-sprints/coffee-sprints.component';
 
 
 
@@ -38,9 +47,18 @@ import { ConfirmBoxConfigModule, DialogConfigModule, NgxAwesomePopupModule, Toas
     UpdateIcedDrinksComponent,
     CreateIcedDrinksComponent,
     CreateComponent,
-    UpdateDrinksComponent,
     CreateHotDrinkComponent,
     UpdateHotDrinkComponent,
+    CreateCoffeeSprintsComponent,
+    UpdateCoffeeSprintsComponent,
+    ShowCoffeeSprintsComponent,
+    ShowIcedDrinksComponent,
+    ShowHotDrinksComponent,
+    ShowTeasComponent,
+    CreateTeasComponent,
+    UpdateTeasComponent,
+    TeasComponent,
+    CoffeeSprintsComponent,
   ],
   imports: [
     BrowserModule,
