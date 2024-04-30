@@ -8,10 +8,13 @@ import { IceDrinksService } from 'src/app/services/IcedDrinksService/Ice-drinks.
   templateUrl: './update-iced-drinks.component.html',
   styleUrls: ['./update-iced-drinks.component.css']
 })
+
 export class UpdateIcedDrinksComponent implements OnInit{
   btnAction = "Editar";
   btnTitle = "Editar Bebidas Geladas";
   icedDrink!: IceDrinks;
+  Category = "icedDrink";
+
 
   constructor(private icedDrinkService: IceDrinksService, private route: ActivatedRoute, private router: Router){}
   ngOnInit(): void {
@@ -20,6 +23,15 @@ export class UpdateIcedDrinksComponent implements OnInit{
         this.icedDrink = data.dados;  
         console.log(data);
       });
+      
+  }
+
+  UpdateIcedDrink(icedDrink: IceDrinks)
+  {
+    console.log(icedDrink);
+    this.icedDrinkService.UpdateIcedDrink(icedDrink).subscribe(data=>{
+      this.router.navigate(['/administrador']);
+    });
   }
 
 }

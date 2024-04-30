@@ -34,12 +34,15 @@ export class IceDrinksService {
   };
 
   UpdateIcedDrink(iceDrinks: IceDrinks): Observable<Response<IceDrinks[]>>{
-    return this.http.post<Response<IceDrinks[]>>(`${this.apiUrl}`, iceDrinks);
+    return this.http.put<Response<IceDrinks[]>>(`${this.apiUrl}`, iceDrinks);
   };
 
   DeleteIcedDrink(id: number): Observable<Response<IngredientsIceDrinks[]>> {
-    console.log(`${this.apiUrl}/${id}`)
     return this.http.delete<Response<IngredientsIceDrinks[]>>(`${this.apiUrl}/${id}`);
+  };
+  
+  DeleteIngredientIcedDrink(id: number): Observable<Response<IngredientsIceDrinks>> {
+    return this.http.delete<Response<IngredientsIceDrinks>>(`${this.apiUrl}/DeleteIngredient/${id}`);
   };
 
 

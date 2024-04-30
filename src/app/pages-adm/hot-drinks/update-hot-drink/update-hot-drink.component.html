@@ -1,1 +1,3 @@
-<p>update-hot-drink works!</p>
+<div *ngIf="hotDrink">
+    <app-create [btnAction]="btnAction" [btnTitle]="btnTitle" [update]="hotDrink" [Category]="Category" (SubmitEdit)="UpdateHotDrink($event)"></app-create>
+</div>

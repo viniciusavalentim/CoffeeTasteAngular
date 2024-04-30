@@ -20,6 +20,7 @@ import { CreateComponent } from './componentes/create/create.component';
 import { UpdateDrinksComponent } from './componentes/update-drinks/update-drinks.component';
 import { CreateHotDrinkComponent } from './pages-adm/hot-drinks/create-hot-drink/create-hot-drink.component';
 import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink/update-hot-drink.component';
+import { ConfirmBoxConfigModule, DialogConfigModule, NgxAwesomePopupModule, ToastNotificationConfigModule } from '@costlydeveloper/ngx-awesome-popup';
 
 
 
@@ -46,7 +47,11 @@ import { UpdateHotDrinkComponent } from './pages-adm/hot-drinks/update-hot-drink
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxAwesomePopupModule.forRoot(),
+    DialogConfigModule.forRoot(),
+    ConfirmBoxConfigModule.forRoot(),
+    ToastNotificationConfigModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

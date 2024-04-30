@@ -10,6 +10,8 @@ import { CoffeeService } from 'src/app/services/MethodsService/coffee.service';
 import { IceDrinksService } from 'src/app/services/IcedDrinksService/Ice-drinks.service';
 import { IceDrinks } from 'src/app/models/IceDrinks';
 import { Hotdrinks } from 'src/app/models/HotDrinks';
+import { HotDrinksService } from 'src/app/services/HotDrinksService/hot-drinks.service';
+import { AppearanceAnimation, ConfirmBoxInitializer, DialogLayoutDisplay, DisappearanceAnimation } from '@costlydeveloper/ngx-awesome-popup';
 
 @Component({
   selector: 'app-administrador',
@@ -44,7 +46,11 @@ export class AdministradorComponent implements OnInit{
   quantidadeDeCafe: number = 0;
 
 
-  constructor(public methodsService: MethodsService, public coffeeService: CoffeeService, public icedDrinksService: IceDrinksService, private route: ActivatedRoute, private router: Router){}
+  constructor(public methodsService: MethodsService, public coffeeService: CoffeeService, 
+    public icedDrinksService: IceDrinksService, 
+    private route: ActivatedRoute, 
+    private router: Router,
+    private hotDrinkService: HotDrinksService){}
 
 
     ngOnInit(): void {
@@ -117,12 +123,67 @@ export class AdministradorComponent implements OnInit{
 
     DeleteIcedDrink(icedDrinks: IceDrinks)
     {
-      const id = Number(icedDrinks.id)
-      this.icedDrinksService.DeleteIcedDrink(id).subscribe(data=>{
-        this.router.navigate(['/administrador']);
+      const newConfirmBox = new ConfirmBoxInitializer();
+
+      newConfirmBox.setTitle('Confirm Delete!!');
+      newConfirmBox.setMessage('Você tem certeza que deseja excluir?');
+
+      // Choose layout color type
+      newConfirmBox.setConfig({
+      layoutType: DialogLayoutDisplay.DANGER, 
+      animationIn: AppearanceAnimation.SLIDE_IN_UP, 
+      animationOut: DisappearanceAnimation.BOUNCE_OUT,
+      buttonPosition: 'center',
       });
+
+      newConfirmBox.setButtonLabels('SIM', 'NÃO');
+      newConfirmBox.openConfirmBox$().subscribe(resp => {
+        if(resp.clickedButtonID == 'sim'){
+          const id = Number(icedDrinks.id)
+          this.icedDrinksService.DeleteIcedDrink(id).subscribe(() => {
+            this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+              this.router.navigate(['/administrador']);
+            });
+          });
+        }
+        else{
+          console.log("nao foi")
+        }
+       });
     }
 
+    DeleteHotdrink(hotDrink: Hotdrinks): void{
+      const newConfirmBox = new ConfirmBoxInitializer();
+
+        newConfirmBox.setTitle('Confirm Delete!!');
+        newConfirmBox.setMessage('Você tem certeza que deseja excluir?');
+
+        // Choose layout color type
+        newConfirmBox.setConfig({
+        layoutType: DialogLayoutDisplay.DANGER, 
+        animationIn: AppearanceAnimation.SLIDE_IN_UP, 
+        animationOut: DisappearanceAnimation.BOUNCE_OUT,
+        buttonPosition: 'center',
+        });
+
+        newConfirmBox.setButtonLabels('SIM', 'NÃO');
+
+        // Simply open the popup and observe button click
+        newConfirmBox.openConfirmBox$().subscribe(resp => {
+          if(resp.clickedButtonID == 'sim'){
+            const id = Number(hotDrink.id)
+            this.hotDrinkService.DeleteHotDrink(id).subscribe(() => {
+              this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.router.navigate(['/administrador']);
+              });
+            });
+          }
+          else{
+            console.log("nao foi")
+          }
+        });
+
+    }
   VerOpcoesMetodos()
   {
     this.opcoesMetodos = true;
