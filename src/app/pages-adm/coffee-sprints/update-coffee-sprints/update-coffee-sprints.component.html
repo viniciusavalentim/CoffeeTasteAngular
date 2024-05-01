@@ -1,1 +1,5 @@
-<p>update-coffee-sprints works!</p>
+<div *ngIf="coffeeSprint">
+    <app-create [btnAction]="btnAction" [btnTitle]="btnTitle" [update]="coffeeSprint" [Category]="Category" (SubmitEdit)="UpdateIcedDrink($event)"></app-create>
+  </div>
+  
+  

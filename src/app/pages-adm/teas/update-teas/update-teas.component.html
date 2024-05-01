@@ -1,1 +1,5 @@
-<p>update-teas works!</p>
+<div *ngIf="teas">
+    <app-create [btnAction]="btnAction" [btnTitle]="btnTitle" [update]="teas" [Category]="Category" (SubmitEdit)="UpdateIcedDrink($event)"></app-create>
+  </div>
+  
+  

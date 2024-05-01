@@ -57,7 +57,6 @@ export class MetodosFormComponent  implements OnInit{
         console.log("chegou?")
         console.log(data);
         this.router.navigate(['/administrador']);
-
       })
     }
     console.log(this.metodoForm.value);

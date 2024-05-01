@@ -12,6 +12,10 @@ import { IceDrinks } from 'src/app/models/IceDrinks';
 import { Hotdrinks } from 'src/app/models/HotDrinks';
 import { HotDrinksService } from 'src/app/services/HotDrinksService/hot-drinks.service';
 import { AppearanceAnimation, ConfirmBoxInitializer, DialogLayoutDisplay, DisappearanceAnimation } from '@costlydeveloper/ngx-awesome-popup';
+import { Teas } from 'src/app/models/Teas';
+import { TeasService } from 'src/app/services/TeasService/teas.service';
+import { CoffeeSprints } from 'src/app/models/CoffeeSprints';
+import { CoffeeSprintService } from 'src/app/services/CoffeeSprintsService/coffee-sprint.service';
 
 @Component({
   selector: 'app-administrador',
@@ -26,6 +30,13 @@ export class AdministradorComponent implements OnInit{
 
   showHotDrinks: boolean = false;
   hotDrinks!: Hotdrinks[];
+
+  showTeas: boolean = false;
+  teas!: Teas[];
+
+  showCoffeeSprints: boolean = false;
+  coffeeSprints!: CoffeeSprints[];
+
 
 
   opcoesMetodos: boolean = true;
@@ -50,7 +61,10 @@ export class AdministradorComponent implements OnInit{
     public icedDrinksService: IceDrinksService, 
     private route: ActivatedRoute, 
     private router: Router,
-    private hotDrinkService: HotDrinksService){}
+    private hotDrinkService: HotDrinksService,
+    private teasService: TeasService,
+    private coffeeSprintsService: CoffeeSprintService
+  ){}
 
 
     ngOnInit(): void {
@@ -79,6 +93,16 @@ export class AdministradorComponent implements OnInit{
       this.methodsService.GetHotDrinks().subscribe(data =>{
         const dados = data.dados;
         this.hotDrinks = dados;
+      });
+
+      this.teasService.GetTeas().subscribe(data =>{
+        const dados = data.dados;
+        this.teas = dados;
+      });
+
+      this.coffeeSprintsService.GetCoffeeSprints().subscribe(data =>{
+        const dados = data.dados;
+        this.coffeeSprints = dados;
       });
 
     };
@@ -151,7 +175,6 @@ export class AdministradorComponent implements OnInit{
         }
        });
     }
-
     DeleteHotdrink(hotDrink: Hotdrinks): void{
       const newConfirmBox = new ConfirmBoxInitializer();
 
@@ -184,22 +207,110 @@ export class AdministradorComponent implements OnInit{
         });
 
     }
+    DeleteTeas(teas: Teas): void{
+      const newConfirmBox = new ConfirmBoxInitializer();
+
+        newConfirmBox.setTitle('Confirm Delete!!');
+        newConfirmBox.setMessage('Você tem certeza que deseja excluir?');
+
+        // Choose layout color type
+        newConfirmBox.setConfig({
+        layoutType: DialogLayoutDisplay.DANGER, 
+        animationIn: AppearanceAnimation.SLIDE_IN_UP, 
+        animationOut: DisappearanceAnimation.BOUNCE_OUT,
+        buttonPosition: 'center',
+        });
+
+        newConfirmBox.setButtonLabels('SIM', 'NÃO');
+
+        // Simply open the popup and observe button click
+        newConfirmBox.openConfirmBox$().subscribe(resp => {
+          if(resp.clickedButtonID == 'sim'){
+            const id = Number(teas.id)
+            this.teasService.DeleteTeas(id).subscribe(() => {
+              this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.router.navigate(['/administrador']);
+              });
+            });
+          }
+          else{
+            console.log("nao foi")
+          }
+        });
+
+    }
+    DeleteCoffeeSprints(coffeeSprints: CoffeeSprints): void{
+      const newConfirmBox = new ConfirmBoxInitializer();
+
+        newConfirmBox.setTitle('Confirm Delete!!');
+        newConfirmBox.setMessage('Você tem certeza que deseja excluir?');
+
+        // Choose layout color type
+        newConfirmBox.setConfig({
+        layoutType: DialogLayoutDisplay.DANGER, 
+        animationIn: AppearanceAnimation.SLIDE_IN_UP, 
+        animationOut: DisappearanceAnimation.BOUNCE_OUT,
+        buttonPosition: 'center',
+        });
+
+        newConfirmBox.setButtonLabels('SIM', 'NÃO');
+
+        // Simply open the popup and observe button click
+        newConfirmBox.openConfirmBox$().subscribe(resp => {
+          if(resp.clickedButtonID == 'sim'){
+            const id = Number(coffeeSprints.id)
+            this.coffeeSprintsService.DeleteCoffeeSprints(id).subscribe(() => {
+              this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+                this.router.navigate(['/administrador']);
+              });
+            });
+          }
+          else{
+            console.log("nao foi")
+          }
+        });
+
+    }
+
   VerOpcoesMetodos()
   {
     this.opcoesMetodos = true;
     this.showIcedDrinks = false;
     this.showHotDrinks = false;
+    this.showTeas = false;
+    this.showCoffeeSprints = false;
   }
 
   ShowIcedDrinks(){
     this.opcoesMetodos = false;
     this.showIcedDrinks = true;
     this.showHotDrinks = false;
+    this.showTeas = false;
+    this.showCoffeeSprints = false;
   }
 
   ShowHotDrinks(){
     this.opcoesMetodos = false;
     this.showIcedDrinks = false;
     this.showHotDrinks = true;
+    this.showTeas = false;
+    this.showCoffeeSprints = false;
   }
+
+  ShowTeas(){
+    this.opcoesMetodos = false;
+    this.showIcedDrinks = false;
+    this.showHotDrinks = false;
+    this.showTeas = true;
+    this.showCoffeeSprints = false;
+  };
+
+  ShowCoffeeSprints(){
+    this.opcoesMetodos = false;
+    this.showIcedDrinks = false;
+    this.showHotDrinks = false;
+    this.showTeas = false;
+    this.showCoffeeSprints = true;
+  };
+
 }
